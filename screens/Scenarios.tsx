@@ -3,6 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 场景配置
 export default class ScenariosScreen extends DCLogic {
@@ -93,69 +94,69 @@ export default class ScenariosScreen extends DCLogic {
           <div style={{ maxWidth: "1160px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "22px" }}>
             <header style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "16px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>场景配置</h1>
-                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577" }}>同一个 Agent，换一张配置就能胜任新工作。新增场景不需要写代码。</p>
+                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>{tr("场景配置")}</h1>
+                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577" }}>{tr("同一个 Agent，换一张配置就能胜任新工作。新增场景不需要写代码。")}</p>
               </div>
               {v.saved ? (
                 <span role="status" style={{ display: "inline-flex", alignItems: "center", gap: "8px", height: "44px", padding: "0 16px", borderRadius: "10px", background: "#E6F2EC", color: "#1F5E43", fontSize: "14px", fontWeight: "700" }}>
-                  已保存，下个任务起生效
+                  {tr("已保存，下个任务起生效")}
                 </span>
               ) : null}
               {v.notSaved ? (
                 <button type="button" onClick={v.save} style={{ height: "44px", padding: "0 22px", borderRadius: "10px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "15px", fontWeight: "700", cursor: "pointer" }}>
-                  保存配置
+                  {tr("保存配置")}
                 </button>
               ) : null}
             </header>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", alignItems: "flex-start" }}>
-              <section aria-label="场景列表" style={{ flex: "1 1 240px", minWidth: "0", display: "flex", flexDirection: "column", gap: "10px" }}>
+              <section aria-label={tr("场景列表")} style={{ flex: "1 1 240px", minWidth: "0", display: "flex", flexDirection: "column", gap: "10px" }}>
                 {v.list.map((s: any, i0: number) => (
                   <button key={i0} type="button" aria-pressed={s.pressed} onClick={s.pick} style={{ textAlign: "left", minHeight: "64px", padding: "12px 16px", borderRadius: "12px", border: s.border, background: s.bg, font: "inherit", color: "#1B2A4A", cursor: "pointer", display: "flex", flexDirection: "column", gap: "4px" }}>
-                    <span style={{ fontSize: "15px", fontWeight: "700" }}>{s.name}</span>
-                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{s.meta}</span>
+                    <span style={{ fontSize: "15px", fontWeight: "700" }}>{tr(s.name)}</span>
+                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr(s.meta)}</span>
                   </button>
                 ))}
                 <button type="button" style={{ minHeight: "52px", padding: "0 16px", borderRadius: "12px", border: "1.5px dashed #9AA8BC", background: "transparent", font: "inherit", fontSize: "14px", fontWeight: "600", color: "#1B2A4A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
-                  新建场景{" "}
+                  {tr("新建场景")}{" "}
                 </button>
               </section>
               <section aria-labelledby="form-h" style={{ flex: "999 1 560px", minWidth: "0", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "16px", padding: "26px 28px", display: "flex", flexDirection: "column", gap: "22px" }}>
-                <h2 id="form-h" style={{ margin: "0", fontSize: "20px", fontWeight: "700" }}>{v.cur.name}</h2>
+                <h2 id="form-h" style={{ margin: "0", fontSize: "20px", fontWeight: "700" }}>{tr(v.cur.name)}</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <label htmlFor="role" style={{ fontSize: "14px", fontWeight: "700" }}>
-                    角色设定{" "}
-                    <span style={{ fontWeight: "400", color: "#5B6577" }}>· 它在这个场景里是谁</span>
+                    {tr("角色设定")}{" "}
+                    <span style={{ fontWeight: "400", color: "#5B6577" }}>{tr("· 它在这个场景里是谁")}</span>
                   </label>
-                  <textarea id="role" rows={2} value={v.cur.role} onChange={v.onRole} style={{ font: "inherit", fontSize: "15px", lineHeight: "1.7", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "10px 14px", resize: "vertical" }}></textarea>
+                  <textarea id="role" rows={2} value={tr(v.cur.role)} onChange={v.onRole} style={{ font: "inherit", fontSize: "15px", lineHeight: "1.7", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "10px 14px", resize: "vertical" }}></textarea>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <label htmlFor="goal" style={{ fontSize: "14px", fontWeight: "700" }}>
-                    目标{" "}
-                    <span style={{ fontWeight: "400", color: "#5B6577" }}>· 什么样的产出算完成</span>
+                    {tr("目标")}{" "}
+                    <span style={{ fontWeight: "400", color: "#5B6577" }}>{tr("· 什么样的产出算完成")}</span>
                   </label>
-                  <input id="goal" type="text" value={v.cur.goal} onChange={v.onGoal} style={{ height: "44px", font: "inherit", fontSize: "15px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 14px", boxSizing: "border-box" }} />
+                  <input id="goal" type="text" value={tr(v.cur.goal)} onChange={v.onGoal} style={{ height: "44px", font: "inherit", fontSize: "15px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 14px", boxSizing: "border-box" }} />
                 </div>
                 <fieldset style={{ border: "none", margin: "0", padding: "0", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <legend style={{ fontSize: "14px", fontWeight: "700", marginBottom: "10px" }}>可用工具</legend>
+                  <legend style={{ fontSize: "14px", fontWeight: "700", marginBottom: "10px" }}>{tr("可用工具")}</legend>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
                     {v.tools.map((t: any, i0: number) => (
                       <label key={i0} htmlFor={t.cid} style={{ display: "inline-flex", alignItems: "center", gap: "8px", minHeight: "44px", padding: "0 14px", borderRadius: "10px", border: `1px solid ${t.border}`, background: t.bg, fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
                         <input type="checkbox" id={t.cid} checked={t.on} onChange={t.toggle} style={{ width: "18px", height: "18px", margin: "0", accentColor: "#2E7D5B" }} />
-                        {t.label}{" "}
+                        {tr(t.label)}{" "}
                       </label>
                     ))}
                   </div>
                 </fieldset>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   <span style={{ fontSize: "14px", fontWeight: "700" }}>
-                    质量标准{" "}
-                    <span style={{ fontWeight: "400", color: "#5B6577" }}>· 反思时用来给自己打分</span>
+                    {tr("质量标准")}{" "}
+                    <span style={{ fontWeight: "400", color: "#5B6577" }}>{tr("· 反思时用来给自己打分")}</span>
                   </span>
                   {v.criteria.map((c: any, i0: number) => (
                     <div key={i0} style={{ display: "flex", alignItems: "center", gap: "12px", minHeight: "44px", padding: "0 6px 0 14px", background: "#F5F6F3", borderRadius: "10px" }}>
-                      <span style={{ flex: "1", fontSize: "15px" }}>{c.text}</span>
-                      <button type="button" aria-label="删除这条标准" onClick={c.remove} style={{ width: "44px", height: "44px", border: "none", background: "transparent", color: "#5B6577", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <span style={{ flex: "1", fontSize: "15px" }}>{tr(c.text)}</span>
+                      <button type="button" aria-label={tr("删除这条标准")} onClick={c.remove} style={{ width: "44px", height: "44px", border: "none", background: "transparent", color: "#5B6577", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                           <path d="M6 6l12 12M18 6L6 18" />
                         </svg>
@@ -163,44 +164,44 @@ export default class ScenariosScreen extends DCLogic {
                     </div>
                   ))}
                   <div style={{ display: "flex", gap: "10px" }}>
-                    <label htmlFor="newc" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>新的质量标准</label>
-                    <input id="newc" type="text" placeholder="新增一条标准，例如：结论放在第一段" value={v.draft} onChange={v.onDraft} style={{ flex: "1", minWidth: "0", height: "44px", font: "inherit", fontSize: "14px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 14px", boxSizing: "border-box" }} />
+                    <label htmlFor="newc" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>{trBadge("新的质量标准")}</label>
+                    <input id="newc" type="text" placeholder={tr("新增一条标准，例如：结论放在第一段")} value={tr(v.draft)} onChange={v.onDraft} style={{ flex: "1", minWidth: "0", height: "44px", font: "inherit", fontSize: "14px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 14px", boxSizing: "border-box" }} />
                     <button type="button" onClick={v.addCrit} style={{ height: "44px", padding: "0 16px", borderRadius: "10px", border: "1px solid #CDD3DB", background: "#FFFFFF", color: "#1B2A4A", font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
-                      添加
+                      {tr("添加")}
                     </button>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
                   <div style={{ flex: "1 1 260px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label htmlFor="tpl" style={{ fontSize: "14px", fontWeight: "700" }}>输出模板</label>
+                    <label htmlFor="tpl" style={{ fontSize: "14px", fontWeight: "700" }}>{tr("输出模板")}</label>
                     <select id="tpl" value={v.cur.template} onChange={v.onTpl} style={{ height: "44px", font: "inherit", fontSize: "15px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 12px", background: "#FFFFFF" }}>
-                      <option value="方案初稿（2 页）">方案初稿（2 页）</option>
-                      <option value="课程大纲">课程大纲</option>
-                      <option value="邮件回复">邮件回复</option>
-                      <option value="周报">周报</option>
+                      <option value="方案初稿（2 页）">{tr("方案初稿（2 页）")}</option>
+                      <option value="课程大纲">{tr("课程大纲")}</option>
+                      <option value="邮件回复">{tr("邮件回复")}</option>
+                      <option value="周报">{tr("周报")}</option>
                     </select>
                   </div>
                   <fieldset style={{ flex: "1 1 260px", border: "none", margin: "0", padding: "0", display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <legend style={{ fontSize: "14px", fontWeight: "700", marginBottom: "8px" }}>新经验如何生效</legend>
+                    <legend style={{ fontSize: "14px", fontWeight: "700", marginBottom: "8px" }}>{tr("新经验如何生效")}</legend>
                     <label htmlFor="m-all" style={{ display: "flex", alignItems: "center", gap: "10px", minHeight: "40px", fontSize: "14px", cursor: "pointer" }}>
                       <input type="radio" name="mode" id="m-all" checked={v.modeAll} onChange={v.setAll} style={{ width: "18px", height: "18px", margin: "0", accentColor: "#2E7D5B" }} />
-                      每条都由我确认
+                      {tr("每条都由我确认")}
                     </label>
                     <label htmlFor="m-low" style={{ display: "flex", alignItems: "center", gap: "10px", minHeight: "40px", fontSize: "14px", cursor: "pointer" }}>
                       <input type="radio" name="mode" id="m-low" checked={v.modeLow} onChange={v.setLow} style={{ width: "18px", height: "18px", margin: "0", accentColor: "#2E7D5B" }} />
-                      只确认低置信度的
+                      {tr("只确认低置信度的")}
                     </label>
                   </fieldset>
                 </div>
                 <label htmlFor="share" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px", padding: "14px 16px", background: "#F5F6F3", borderRadius: "12px", cursor: "pointer" }}>
                   <span style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                    <span style={{ fontSize: "14px", fontWeight: "700" }}>允许经验提升为全局</span>
-                    <span style={{ fontSize: "13px", color: "#5B6577" }}>在本场景被验证 5 次以上的经验，可推荐给其他场景使用</span>
+                    <span style={{ fontSize: "14px", fontWeight: "700" }}>{tr("允许经验提升为全局")}</span>
+                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("在本场景被验证 5 次以上的经验，可推荐给其他场景使用")}</span>
                   </span>
                   <input type="checkbox" id="share" checked={v.share} onChange={v.toggleShare} style={{ width: "22px", height: "22px", margin: "0", accentColor: "#2E7D5B", flexShrink: "0" }} />
                 </label>
                 <details style={{ borderTop: "1px solid #EEF0EC", paddingTop: "16px" }}>
-                  <summary style={{ fontSize: "14px", fontWeight: "700", cursor: "pointer", minHeight: "32px" }}>查看配置文件</summary>
+                  <summary style={{ fontSize: "14px", fontWeight: "700", cursor: "pointer", minHeight: "32px" }}>{tr("查看配置文件")}</summary>
                   <pre style={{ margin: "12px 0 0", background: "#1B2A4A", color: "#E6EBF2", borderRadius: "12px", padding: "18px 20px", fontFamily: "'JetBrains Mono', monospace", fontSize: "13px", lineHeight: "1.7", whiteSpace: "pre-wrap", overflowX: "auto" }}>
                     {"{{ yaml }}"}
                   </pre>

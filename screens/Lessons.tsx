@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 经验库
 export default class LessonsScreen extends DCLogic {
@@ -66,60 +67,62 @@ export default class LessonsScreen extends DCLogic {
           <div style={{ maxWidth: "1160px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "22px" }}>
             <header style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "16px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>经验库</h1>
-                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577" }}>86 条经验卡 · 5 个 SOP · 每条都能追溯到当初的那次工作。</p>
+                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>{tr("经验库")}</h1>
+                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577" }}>{tr("86 条经验卡 · 5 个 SOP · 每条都能追溯到当初的那次工作。")}</p>
               </div>
               <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                <label htmlFor="q" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>搜索经验</label>
-                <input id="q" type="search" placeholder="搜索经验、客户、场景" style={{ height: "44px", width: "260px", maxWidth: "100%", font: "inherit", fontSize: "14px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 14px", boxSizing: "border-box", background: "#FFFFFF" }} />
+                <label htmlFor="q" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>{trBadge("搜索经验")}</label>
+                <input id="q" type="search" placeholder={tr("搜索经验、客户、场景")} style={{ height: "44px", width: "260px", maxWidth: "100%", font: "inherit", fontSize: "14px", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 14px", boxSizing: "border-box", background: "#FFFFFF" }} />
                 <button type="button" style={{ height: "44px", padding: "0 18px", borderRadius: "10px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", fontWeight: "700", cursor: "pointer" }}>
-                  手动添加
+                  {tr("手动添加")}
                 </button>
               </div>
             </header>
-            <div role="group" aria-label="按作用域筛选" style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+            <div role="group" aria-label={tr("按作用域筛选")} style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {v.filters.map((f: any, i0: number) => (
                 <button key={i0} type="button" aria-pressed={f.pressed} onClick={f.pick} style={{ height: "40px", padding: "0 16px", borderRadius: "999px", font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer", border: `1px solid ${f.border}`, background: f.bg, color: f.fg }}>
-                  {f.label}
+                  {tr(f.label)}
                 </button>
               ))}
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", alignItems: "flex-start" }}>
-              <section aria-label="经验列表" style={{ flex: "999 1 560px", minWidth: "0", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "16px", overflowX: "auto" }}>
+              <section aria-label={tr("经验列表")} style={{ flex: "999 1 560px", minWidth: "0", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "16px", overflowX: "auto" }}>
                 <table style={{ width: "100%", minWidth: "760px", borderCollapse: "collapse", fontSize: "14px" }}>
                   <thead>
                     <tr style={{ textAlign: "left", color: "#5B6577", fontSize: "13px" }}>
                       <th scope="col" style={{ padding: "14px 16px 12px 20px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>ID</th>
-                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>经验</th>
-                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>作用域</th>
-                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>置信度</th>
-                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>有效 / 使用</th>
-                      <th scope="col" style={{ padding: "14px 20px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>状态</th>
+                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>{tr("经验")}</th>
+                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>{tr("作用域")}</th>
+                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>{tr("置信度")}</th>
+                      <th scope="col" style={{ padding: "14px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>{tr("有效 / 使用")}</th>
+                      <th scope="col" style={{ padding: "14px 20px 12px 12px", fontWeight: "600", borderBottom: "1px solid #EEF0EC" }}>{tr("状态")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     {v.rows.map((r: any, i0: number) => (
                       <tr key={i0} style={{ background: r.rowBg }}>
                         <td style={{ padding: "12px 16px 12px 20px", borderBottom: "1px solid #EEF0EC", fontFamily: "'JetBrains Mono', monospace", fontSize: "12px", color: "#5B6577", whiteSpace: "nowrap" }}>
-                          {r.id}
+                          {tr(r.id)}
                         </td>
                         <td style={{ padding: "6px 12px", borderBottom: "1px solid #EEF0EC" }}>
                           <button type="button" onClick={r.select} style={{ minHeight: "44px", width: "100%", textAlign: "left", background: "none", border: "none", padding: "6px 0", font: "inherit", fontSize: "14px", fontWeight: "500", lineHeight: "1.55", color: "#1B2A4A", cursor: "pointer" }}>
-                            {r.rule}
+                            {tr(r.rule)}
                           </button>
                         </td>
-                        <td style={{ padding: "12px", borderBottom: "1px solid #EEF0EC", fontSize: "13px", whiteSpace: "nowrap" }}>{r.scope}</td>
+                        <td style={{ padding: "12px", borderBottom: "1px solid #EEF0EC", fontSize: "13px", whiteSpace: "nowrap" }}>{tr(r.scope)}</td>
                         <td style={{ padding: "12px", borderBottom: "1px solid #EEF0EC" }}>
                           <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                             <div style={{ width: "64px", height: "6px", borderRadius: "3px", background: "#E3E6E1" }}>
                               <div style={{ height: "6px", borderRadius: "3px", background: "#2E7D5B", width: `${r.pct}%` }} />
                             </div>
-                            <span style={{ fontSize: "12px", color: "#5B6577" }}>{r.conf}</span>
+                            <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr(r.conf)}</span>
                           </div>
                         </td>
-                        <td style={{ padding: "12px", borderBottom: "1px solid #EEF0EC", fontSize: "13px", whiteSpace: "nowrap" }}>{r.helped}{" / "}{r.used}</td>
+                        <td style={{ padding: "12px", borderBottom: "1px solid #EEF0EC", fontSize: "13px", whiteSpace: "nowrap" }}>{tr(r.helped)}{" / "}{tr(r.used)}</td>
                         <td style={{ padding: "12px 20px 12px 12px", borderBottom: "1px solid #EEF0EC" }}>
-                          <span style={{ fontSize: "12px", fontWeight: "700", padding: "3px 10px", borderRadius: "999px", whiteSpace: "nowrap", background: r.sBg, color: r.sFg }}>{r.status}</span>
+                          <span style={{ fontSize: "12px", fontWeight: "700", padding: "3px 10px", borderRadius: "999px", whiteSpace: "nowrap", background: r.sBg, color: r.sFg }}>
+                            {tr(r.status)}
+                          </span>
                         </td>
                       </tr>
                     ))}
@@ -128,51 +131,51 @@ export default class LessonsScreen extends DCLogic {
               </section>
               <aside aria-labelledby="detail-h" style={{ flex: "1 1 320px", minWidth: "0", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "16px", padding: "22px 24px", display: "flex", flexDirection: "column", gap: "16px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "8px" }}>
-                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "13px", color: "#5B6577" }}>{v.sel.id}</span>
-                  <span style={{ fontSize: "12px", fontWeight: "700", padding: "3px 10px", borderRadius: "999px", background: v.sel.sBg, color: v.sel.sFg }}>{v.sel.status}</span>
+                  <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "13px", color: "#5B6577" }}>{tr(v.sel.id)}</span>
+                  <span style={{ fontSize: "12px", fontWeight: "700", padding: "3px 10px", borderRadius: "999px", background: v.sel.sBg, color: v.sel.sFg }}>{tr(v.sel.status)}</span>
                 </div>
-                <h2 id="detail-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700", lineHeight: "1.6" }}>{v.sel.rule}</h2>
+                <h2 id="detail-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700", lineHeight: "1.6" }}>{tr(v.sel.rule)}</h2>
                 <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <span style={{ fontSize: "13px", fontWeight: "600", color: "#5B6577" }}>为什么</span>
-                  <span style={{ fontSize: "14px", lineHeight: "1.7" }}>{v.sel.why}</span>
+                  <span style={{ fontSize: "13px", fontWeight: "600", color: "#5B6577" }}>{tr("为什么")}</span>
+                  <span style={{ fontSize: "14px", lineHeight: "1.7" }}>{tr(v.sel.why)}</span>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "10px" }}>
                   <div style={{ background: "#F5F6F3", borderRadius: "10px", padding: "10px 12px", display: "flex", flexDirection: "column", gap: "2px" }}>
-                    <span style={{ fontSize: "12px", color: "#5B6577" }}>置信度</span>
-                    <span style={{ fontSize: "18px", fontWeight: "700" }}>{v.sel.conf}</span>
+                    <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr("置信度")}</span>
+                    <span style={{ fontSize: "18px", fontWeight: "700" }}>{tr(v.sel.conf)}</span>
                   </div>
                   <div style={{ background: "#F5F6F3", borderRadius: "10px", padding: "10px 12px", display: "flex", flexDirection: "column", gap: "2px" }}>
-                    <span style={{ fontSize: "12px", color: "#5B6577" }}>使用</span>
-                    <span style={{ fontSize: "18px", fontWeight: "700" }}>{v.sel.used}</span>
+                    <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr("使用")}</span>
+                    <span style={{ fontSize: "18px", fontWeight: "700" }}>{tr(v.sel.used)}</span>
                   </div>
                   <div style={{ background: "#F5F6F3", borderRadius: "10px", padding: "10px 12px", display: "flex", flexDirection: "column", gap: "2px" }}>
-                    <span style={{ fontSize: "12px", color: "#5B6577" }}>有效</span>
-                    <span style={{ fontSize: "18px", fontWeight: "700" }}>{v.sel.helped}</span>
+                    <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr("有效")}</span>
+                    <span style={{ fontSize: "18px", fontWeight: "700" }}>{tr(v.sel.helped)}</span>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                  <span style={{ fontSize: "13px", fontWeight: "600", color: "#5B6577" }}>来源（点开看当时的工作）</span>
+                  <span style={{ fontSize: "13px", fontWeight: "600", color: "#5B6577" }}>{tr("来源（点开看当时的工作）")}</span>
                   {v.sel.sources.map((s: any, i0: number) => (
                     <Link key={i0} href="/task" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", minHeight: "44px", padding: "0 12px", border: "1px solid #E3E6E1", borderRadius: "10px", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>
-                      {s}
+                      {tr(s)}
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M9 6l6 6-6 6" />
                       </svg>
                     </Link>
                   ))}
                 </div>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>作用域：{v.sel.scope}{" · 有效期至 "}{v.sel.expires}</span>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("作用域：")}{tr(v.sel.scope)}{tr(" · 有效期至 ")}{tr(v.sel.expires)}</span>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", paddingTop: "4px" }}>
                   {v.sel.canUpgrade ? (
                     <button type="button" style={{ height: "44px", padding: "0 16px", borderRadius: "10px", border: "none", background: "#E8A33D", color: "#1B2A4A", font: "inherit", fontSize: "14px", fontWeight: "700", cursor: "pointer" }}>
-                      升级为 SOP
+                      {tr("升级为 SOP")}
                     </button>
                   ) : null}
                   <button type="button" style={{ height: "44px", padding: "0 16px", borderRadius: "10px", border: "1px solid #CDD3DB", background: "#FFFFFF", color: "#1B2A4A", font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
-                    编辑
+                    {tr("编辑")}
                   </button>
                   <button type="button" style={{ height: "44px", padding: "0 16px", borderRadius: "10px", border: "none", background: "transparent", color: "#8A2B1F", font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
-                    停用
+                    {tr("停用")}
                   </button>
                 </div>
               </aside>

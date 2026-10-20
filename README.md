@@ -2,7 +2,7 @@
 
 在你做事时向你学习的工作 Agent：工作（今日任务、任务执行、晚间复盘、经验库、场景配置）、学习（今日学习、六种学法、视频课、情景闯关、AI 教练、定时学习）、成长（能力测评、技能图谱）。
 
-这是可演示的前端原型：Next.js 静态导出，部署到 Cloudflare Workers 的静态资源，不需要数据库或密钥。所有交互状态都在浏览器里。侧边栏菜单支持中文 / English 切换（记在浏览器里）。
+这是可演示的前端原型：Next.js 静态导出，部署到 Cloudflare Workers 的静态资源，不需要数据库或密钥。所有交互状态都在浏览器里。左上角可切换中文 / English：菜单和页面内容一起切换，选择记在浏览器里。
 
 ## 本地运行
 
@@ -40,6 +40,7 @@ npm run deploy     # next build → ./out，wrangler deploy 发布为 novaagent.
 | `/schedule` | 定时与触发式学习 |
 | `/assess` | 能力测评 |
 | `/skills` | 技能图谱 · 成长曲线 |
+| `/progress` | 学习进度：技能网状图 + 能力雷达图（均可切换表格视图） |
 
 ## 结构
 
@@ -49,6 +50,12 @@ screens/             各页面：renderVals() 计算数据，view() 是页面标
 components/dc.tsx    页面基类（state / setState / renderVals / view）
 components/agent-nav.tsx  侧边栏主导航（中 / EN）
 components/lang.tsx  界面语言
+lib/i18n/            英文模式：tr() 在渲染时查 en.json；页面逻辑仍用中文原值，不受影响
+lib/skills.ts        学习者技能数据（学习进度页使用，与技能图谱、能力测评页一致）
 ```
+
+## 英文翻译
+
+页面文字在显示时经过 `tr()`：先整句查 `lib/i18n/en.json`，再按“数字换成 #”的模板查，最后逐段查。新增或修改中文文案后，在 `en.json` 补上对应英文即可；查不到的会原样显示中文。
 
 页面由设计画布「学习型工作Agent UI」转换而来。

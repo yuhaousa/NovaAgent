@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 学习模式库
 export default class ModesScreen extends DCLogic {
@@ -70,81 +71,81 @@ export default class ModesScreen extends DCLogic {
         <main style={{ flex: "999 1 560px", minWidth: "0", padding: "24px 36px 56px", boxSizing: "border-box" }}>
           <div style={{ maxWidth: "1120px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "24px" }}>
             <header style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
-              <div role="tablist" aria-label="分类" style={{ display: "flex", gap: "24px" }}>
+              <div role="tablist" aria-label={tr("分类")} style={{ display: "flex", gap: "24px" }}>
                 {v.tabs.map((t: any, i0: number) => (
                   <button key={i0} type="button" role="tab" aria-selected={t.sel} onClick={t.pick} style={{ height: "44px", padding: "0", border: "none", background: "transparent", font: "inherit", fontSize: "20px", fontWeight: t.weight, color: t.fg, cursor: "pointer" }}>
-                    {t.label}
+                    {tr(t.label)}
                   </button>
                 ))}
               </div>
               <div style={{ display: "flex", gap: "10px" }}>
-                <label htmlFor="ms" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>搜索</label>
-                <input id="ms" type="search" placeholder="搜索模式、导师" style={{ height: "40px", width: "200px", font: "inherit", fontSize: "14px", border: "1px solid #DCE0DA", borderRadius: "10px", padding: "0 12px", boxSizing: "border-box" }} />
+                <label htmlFor="ms" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>{trBadge("搜索")}</label>
+                <input id="ms" type="search" placeholder={tr("搜索模式、导师")} style={{ height: "40px", width: "200px", font: "inherit", fontSize: "14px", border: "1px solid #DCE0DA", borderRadius: "10px", padding: "0 12px", boxSizing: "border-box" }} />
                 <button type="button" style={{ height: "40px", padding: "0 14px", borderRadius: "10px", border: "1px solid #DCE0DA", background: "#FFFFFF", font: "inherit", fontSize: "14px", fontWeight: "600", color: "#1B2A4A", cursor: "pointer" }}>
-                  我的模式
+                  {tr("我的模式")}
                 </button>
               </div>
             </header>
             {v.isModes ? (
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <section aria-label="按时间和场景挑选" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "14px" }}>
+                <section aria-label={tr("按时间和场景挑选")} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "14px" }}>
                   <div style={{ border: "1px solid #E6E8E3", borderRadius: "16px", overflow: "hidden" }}>
                     <div style={{ background: "#EEEAF8", padding: "18px 18px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <span style={{ fontSize: "17px", fontWeight: "700" }}>碎片时间</span>
-                      <span style={{ fontSize: "12px", color: "#5B3FA0" }}>5 分钟以内</span>
+                      <span style={{ fontSize: "17px", fontWeight: "700" }}>{tr("碎片时间")}</span>
+                      <span style={{ fontSize: "12px", color: "#5B3FA0" }}>{tr("5 分钟以内")}</span>
                     </div>
                     <div style={{ padding: "10px 18px 14px", display: "flex", flexDirection: "column" }}>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>闪卡速记 ›</Link>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>3 分钟视频 ›</Link>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>每日一题 ›</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("闪卡速记 ›")}</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("3 分钟视频 ›")}</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("每日一题 ›")}</Link>
                     </div>
                   </div>
                   <div style={{ border: "1px solid #E6E8E3", borderRadius: "16px", overflow: "hidden" }}>
                     <div style={{ background: "#E3ECF6", padding: "18px 18px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <span style={{ fontSize: "17px", fontWeight: "700" }}>通勤与运动</span>
-                      <span style={{ fontSize: "12px", color: "#1F4E8C" }}>只用耳朵</span>
+                      <span style={{ fontSize: "17px", fontWeight: "700" }}>{tr("通勤与运动")}</span>
+                      <span style={{ fontSize: "12px", color: "#1F4E8C" }}>{tr("只用耳朵")}</span>
                     </div>
                     <div style={{ padding: "10px 18px 14px", display: "flex", flexDirection: "column" }}>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>双人对谈播客 ›</Link>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>语音问答 ›</Link>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>经验卡朗读 ›</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("双人对谈播客 ›")}</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("语音问答 ›")}</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("经验卡朗读 ›")}</Link>
                     </div>
                   </div>
                   <div style={{ border: "1px solid #E6E8E3", borderRadius: "16px", overflow: "hidden" }}>
                     <div style={{ background: "#E3F1EA", padding: "18px 18px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <span style={{ fontSize: "17px", fontWeight: "700" }}>会前实战</span>
-                      <span style={{ fontSize: "12px", color: "#1F5E43" }}>会议前 30 分钟</span>
+                      <span style={{ fontSize: "17px", fontWeight: "700" }}>{tr("会前实战")}</span>
+                      <span style={{ fontSize: "12px", color: "#1F5E43" }}>{tr("会议前 30 分钟")}</span>
                     </div>
                     <div style={{ padding: "10px 18px 14px", display: "flex", flexDirection: "column" }}>
-                      <Link href="/coach" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>角色扮演陪练 ›</Link>
-                      <Link href="/game" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>情景闯关 ›</Link>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>会前速读卡 ›</Link>
+                      <Link href="/coach" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("角色扮演陪练 ›")}</Link>
+                      <Link href="/game" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("情景闯关 ›")}</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("会前速读卡 ›")}</Link>
                     </div>
                   </div>
                   <div style={{ border: "1px solid #E6E8E3", borderRadius: "16px", overflow: "hidden" }}>
                     <div style={{ background: "#F8EEDC", padding: "18px 18px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <span style={{ fontSize: "17px", fontWeight: "700" }}>深度学习</span>
-                      <span style={{ fontSize: "12px", color: "#7A4E0E" }}>周末 · 30 分钟以上</span>
+                      <span style={{ fontSize: "17px", fontWeight: "700" }}>{tr("深度学习")}</span>
+                      <span style={{ fontSize: "12px", color: "#7A4E0E" }}>{tr("周末 · 30 分钟以上")}</span>
                     </div>
                     <div style={{ padding: "10px 18px 14px", display: "flex", flexDirection: "column" }}>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>案例拆解 ›</Link>
-                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>苏格拉底研讨 ›</Link>
-                      <Link href="/skills" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>项目制学习 ›</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("案例拆解 ›")}</Link>
+                      <Link href="/session" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("苏格拉底研讨 ›")}</Link>
+                      <Link href="/skills" style={{ minHeight: "34px", display: "flex", alignItems: "center", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>{tr("项目制学习 ›")}</Link>
                     </div>
                   </div>
                 </section>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "12px" }}>
-                  <div role="group" aria-label="按学习方式筛选" style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                  <div role="group" aria-label={tr("按学习方式筛选")} style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                     {v.filters.map((f: any, i0: number) => (
                       <button key={i0} type="button" aria-pressed={f.sel} onClick={f.pick} style={{ height: "36px", padding: "0 14px", borderRadius: "10px", border: "none", background: f.bg, color: f.fg, font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
-                        {f.label}
+                        {tr(f.label)}
                       </button>
                     ))}
                   </div>
                   <div style={{ display: "flex", background: "#F1F2EF", borderRadius: "10px", padding: "3px", fontSize: "13px" }}>
-                    <span style={{ padding: "6px 12px", borderRadius: "8px", background: "#FFFFFF", fontWeight: "700" }}>适合我</span>
-                    <span style={{ padding: "6px 12px", color: "#5B6577" }}>最热</span>
-                    <span style={{ padding: "6px 12px", color: "#5B6577" }}>最新</span>
+                    <span style={{ padding: "6px 12px", borderRadius: "8px", background: "#FFFFFF", fontWeight: "700" }}>{tr("适合我")}</span>
+                    <span style={{ padding: "6px 12px", color: "#5B6577" }}>{tr("最热")}</span>
+                    <span style={{ padding: "6px 12px", color: "#5B6577" }}>{tr("最新")}</span>
                   </div>
                 </div>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))", gap: "14px" }}>
@@ -152,22 +153,22 @@ export default class ModesScreen extends DCLogic {
                     <article key={i0} style={{ border: "1px solid #E6E8E3", borderRadius: "18px", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "12px", background: "#FFFFFF" }}>
                       <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
                         <span style={{ width: "48px", height: "48px", borderRadius: "14px", background: it.bg, color: it.fg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", fontWeight: "700", flexShrink: "0" }}>
-                          {it.k}
+                          {trBadge(it.k)}
                         </span>
                         <div style={{ display: "flex", flexDirection: "column", gap: "4px", minWidth: "0" }}>
-                          <h3 style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{it.name}</h3>
-                          <p style={{ margin: "0", fontSize: "13px", lineHeight: "1.6", color: "#5B6577" }}>{it.desc}</p>
+                          <h3 style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{tr(it.name)}</h3>
+                          <p style={{ margin: "0", fontSize: "13px", lineHeight: "1.6", color: "#5B6577" }}>{tr(it.desc)}</p>
                         </div>
                       </div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                         {it.tags.map((tg: any, i1: number) => (
-                          <span key={i1} style={{ fontSize: "12px", padding: "3px 10px", borderRadius: "6px", background: "#F1F2EF", color: "#3D4757" }}>{tg}</span>
+                          <span key={i1} style={{ fontSize: "12px", padding: "3px 10px", borderRadius: "6px", background: "#F1F2EF", color: "#3D4757" }}>{tr(tg)}</span>
                         ))}
                       </div>
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", paddingTop: "4px" }}>
-                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{it.fit}</span>
+                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr(it.fit)}</span>
                         <Link href={it.href} style={{ display: "inline-flex", alignItems: "center", height: "36px", padding: "0 14px", borderRadius: "10px", background: "#1B2A4A", color: "#FFFFFF", fontSize: "13px", fontWeight: "700", textDecoration: "none" }}>
-                          试一试
+                          {tr("试一试")}
                         </Link>
                       </div>
                     </article>
@@ -177,28 +178,28 @@ export default class ModesScreen extends DCLogic {
             ) : null}
             {v.isMentors ? (
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <p style={{ margin: "0", fontSize: "14px", color: "#5B6577" }}>每位导师都读取你的技能图谱和经验库，用不同的专长和风格陪你学。</p>
+                <p style={{ margin: "0", fontSize: "14px", color: "#5B6577" }}>{tr("每位导师都读取你的技能图谱和经验库，用不同的专长和风格陪你学。")}</p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))", gap: "14px" }}>
                   {v.mentors.map((mt: any, i0: number) => (
                     <article key={i0} style={{ border: "1px solid #E6E8E3", borderRadius: "18px", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "12px" }}>
                       <div style={{ display: "flex", gap: "14px", alignItems: "center" }}>
                         <span style={{ width: "52px", height: "52px", borderRadius: "50%", background: mt.bg, color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", fontWeight: "700", flexShrink: "0" }}>
-                          {mt.k}
+                          {trBadge(mt.k)}
                         </span>
                         <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                          <h3 style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{mt.name}</h3>
-                          <span style={{ fontSize: "13px", color: "#5B6577" }}>{mt.desc}</span>
+                          <h3 style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{tr(mt.name)}</h3>
+                          <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr(mt.desc)}</span>
                         </div>
                       </div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                         {mt.tags.map((tg: any, i1: number) => (
-                          <span key={i1} style={{ fontSize: "12px", padding: "3px 10px", borderRadius: "6px", background: "#F1F2EF", color: "#3D4757" }}>{tg}</span>
+                          <span key={i1} style={{ fontSize: "12px", padding: "3px 10px", borderRadius: "6px", background: "#F1F2EF", color: "#3D4757" }}>{tr(tg)}</span>
                         ))}
                       </div>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{mt.stat}</span>
+                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr(mt.stat)}</span>
                         <Link href="/coach" style={{ display: "inline-flex", alignItems: "center", height: "36px", padding: "0 14px", borderRadius: "10px", border: "1px solid #DCE0DA", color: "#1B2A4A", fontSize: "13px", fontWeight: "700", textDecoration: "none" }}>
-                          开始对话
+                          {tr("开始对话")}
                         </Link>
                       </div>
                     </article>
@@ -208,16 +209,16 @@ export default class ModesScreen extends DCLogic {
             ) : null}
             {v.isConnectors ? (
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                <p style={{ margin: "0", fontSize: "14px", color: "#5B6577" }}>学习内容从这些工具里的真实工作生成：邮件、会议、文档和课程数据。只读取你授权的部分。</p>
+                <p style={{ margin: "0", fontSize: "14px", color: "#5B6577" }}>{tr("学习内容从这些工具里的真实工作生成：邮件、会议、文档和课程数据。只读取你授权的部分。")}</p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(330px, 1fr))", gap: "14px" }}>
                   {v.connectors.map((cn: any, i0: number) => (
                     <label key={i0} htmlFor={cn.cid} style={{ border: "1px solid #E6E8E3", borderRadius: "18px", padding: "18px 20px", display: "flex", alignItems: "center", gap: "14px", cursor: "pointer" }}>
                       <span style={{ width: "44px", height: "44px", borderRadius: "12px", background: "#F1F2EF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", fontWeight: "700", flexShrink: "0" }}>
-                        {cn.k}
+                        {trBadge(cn.k)}
                       </span>
                       <span style={{ flex: "1", display: "flex", flexDirection: "column", gap: "2px" }}>
-                        <span style={{ fontSize: "16px", fontWeight: "700" }}>{cn.name}</span>
-                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{cn.desc}</span>
+                        <span style={{ fontSize: "16px", fontWeight: "700" }}>{tr(cn.name)}</span>
+                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr(cn.desc)}</span>
                       </span>
                       <input type="checkbox" role="switch" id={cn.cid} checked={cn.on} onChange={cn.toggle} style={{ width: "22px", height: "22px", margin: "0", accentColor: "#2E7D5B" }} />
                     </label>

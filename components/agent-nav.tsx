@@ -19,6 +19,7 @@ const MAIN: { href: string; label: Text; icon: ReactNode; extra?: ReactNode }[] 
   { href: "/review", label: { zh: "复盘", en: "Review" }, icon: icon(<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" />), extra: "badge" },
   { href: "/modes", label: { zh: "学习模式 · 导师", en: "Modes · Mentors" }, icon: icon(<><rect x="4" y="4" width="7" height="7" rx="2" /><rect x="13" y="4" width="7" height="7" rx="2" /><rect x="4" y="13" width="7" height="7" rx="2" /><rect x="13" y="13" width="7" height="7" rx="2" /></>) },
   { href: "/skills", label: { zh: "技能图谱", en: "Skill map" }, icon: icon(<><circle cx="6" cy="6" r="2.5" /><circle cx="18" cy="6" r="2.5" /><circle cx="12" cy="18" r="2.5" /><path d="M8.5 6h7M7.2 8.2l3.6 7.6M16.8 8.2l-3.6 7.6" /></>) },
+  { href: "/progress", label: { zh: "学习进度", en: "Progress" }, icon: icon(<><path d="M12 3l8 5.5-3 9.5H7L4 8.5z" /><path d="M12 8l3.5 2.5-1.2 4H9.7l-1.2-4z" /></>) },
   { href: "/schedule", label: { zh: "定时学习", en: "Scheduled" }, icon: icon(<><circle cx="12" cy="13" r="7" /><path d="M12 10v3l2 2M5 4l3 2M19 4l-3 2" /></>), extra: "dot" },
   { href: "/lessons", label: { zh: "资料库 · 经验", en: "Library · Lessons" }, icon: icon(<><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z" /><path d="M5 17a3 3 0 0 1 3-3h11" /></>) },
   { href: "/scenarios", label: { zh: "场景配置", en: "Scenarios" }, icon: icon(<><path d="M4 7h10M18 7h2M4 17h4M12 17h8" /><circle cx="16" cy="7" r="2" /><circle cx="10" cy="17" r="2" /></>) },
@@ -38,7 +39,7 @@ const PATHS: { color: string; label: Text }[] = [
 ];
 
 const T = {
-  brand: { zh: "学习助手", en: "Learning Agent" },
+  brand: { zh: "学习助手", en: "NovaAgent" },
   org: { zh: "九竹教育云", en: "Jiuzhu EduCloud" },
   nav: { zh: "主导航", en: "Main navigation" },
   recent: { zh: "最近 (36)", en: "Recent (36)" },
@@ -59,7 +60,7 @@ export function AgentNav({ active }: { active: string[] }) {
   const isOn = (href: string) => active.includes(href);
 
   return (
-    <nav aria-label={T.nav[lang]} style={{ flex: "1 1 240px", background: "#F4F5F2", borderRight: "1px solid #E6E8E3", padding: "20px 14px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "20px" }}>
+    <nav aria-label={T.nav[lang]} style={{ flex: lang === "en" ? "1 1 288px" : "1 1 240px", minWidth: 0, background: "#F4F5F2", borderRight: "1px solid #E6E8E3", padding: "20px 14px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "20px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: "10px", padding: "0 8px" }}>
         <div style={{ width: "34px", height: "34px", borderRadius: "10px", background: "#2E7D5B", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

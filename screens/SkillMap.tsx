@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 技能图谱
 export default class SkillMapScreen extends DCLogic {
@@ -107,26 +108,26 @@ export default class SkillMapScreen extends DCLogic {
           <div style={{ maxWidth: "1160px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "24px" }}>
             <header style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "16px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>技能图谱</h1>
-                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577", maxWidth: "640px", lineHeight: "1.7" }}>你学的每一个视频、玩的每一局游戏、做的每一项任务，都挂在这张图谱的某个节点上。按岗位能力模型一级一级往上走，而不是想到什么学什么。</p>
+                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>{tr("技能图谱")}</h1>
+                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577", maxWidth: "640px", lineHeight: "1.7" }}>{tr("你学的每一个视频、玩的每一局游戏、做的每一项任务，都挂在这张图谱的某个节点上。按岗位能力模型一级一级往上走，而不是想到什么学什么。")}</p>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                <label htmlFor="path" style={{ fontSize: "13px", fontWeight: "600", color: "#5B6577" }}>岗位路径</label>
+                <label htmlFor="path" style={{ fontSize: "13px", fontWeight: "600", color: "#5B6577" }}>{tr("岗位路径")}</label>
                 <select id="path" style={{ height: "44px", minWidth: "240px", font: "inherit", fontSize: "15px", fontWeight: "600", color: "#1B2A4A", border: "1px solid #CDD3DB", borderRadius: "10px", padding: "0 12px", background: "#FFFFFF" }}>
-                  <option>企业培训解决方案顾问</option>
-                  <option>课程设计师</option>
-                  <option>客户成功经理</option>
+                  <option>{tr("企业培训解决方案顾问")}</option>
+                  <option>{tr("课程设计师")}</option>
+                  <option>{tr("客户成功经理")}</option>
                 </select>
               </div>
             </header>
-            <section aria-label="当前进度" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
+            <section aria-label={tr("当前进度")} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
               <div style={{ background: "#1B2A4A", color: "#FFFFFF", borderRadius: "14px", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "6px" }}>
-                <span style={{ fontSize: "13px", color: "#C9D2DF" }}>当前岗位等级</span>
-                <span style={{ fontSize: "24px", fontWeight: "700" }}>L2 应用</span>
-                <span style={{ fontSize: "13px", color: "#E8A33D", fontWeight: "600" }}>目标：L3 精通</span>
+                <span style={{ fontSize: "13px", color: "#C9D2DF" }}>{tr("当前岗位等级")}</span>
+                <span style={{ fontSize: "24px", fontWeight: "700" }}>{tr("L2 应用")}</span>
+                <span style={{ fontSize: "13px", color: "#E8A33D", fontWeight: "600" }}>{tr("目标：L3 精通")}</span>
               </div>
               <div style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "14px", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "6px" }}>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>已掌握节点</span>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("已掌握节点")}</span>
                 <span style={{ fontSize: "24px", fontWeight: "700" }}>
                   8{" "}
                   <span style={{ fontSize: "15px", fontWeight: "500", color: "#5B6577" }}>/ 16</span>
@@ -134,33 +135,33 @@ export default class SkillMapScreen extends DCLogic {
                 <div style={{ height: "6px", borderRadius: "3px", background: "#EEF0EC" }}><div style={{ width: "50%", height: "6px", borderRadius: "3px", background: "#2E7D5B" }} /></div>
               </div>
               <div style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "14px", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "6px" }}>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>学习中</span>
-                <span style={{ fontSize: "24px", fontWeight: "700" }}>4 个节点</span>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>本周重点：数据安全与 ISO 27001</span>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("学习中")}</span>
+                <span style={{ fontSize: "24px", fontWeight: "700" }}>{tr("4 个节点")}</span>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("本周重点：数据安全与 ISO 27001")}</span>
               </div>
               <div style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "14px", padding: "18px 20px", display: "flex", flexDirection: "column", gap: "6px" }}>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>预计达到 L3</span>
-                <span style={{ fontSize: "24px", fontWeight: "700" }}>5 周后</span>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>按每天 15 分钟 + 日常任务</span>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("预计达到 L3")}</span>
+                <span style={{ fontSize: "24px", fontWeight: "700" }}>{tr("5 周后")}</span>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("按每天 15 分钟 + 日常任务")}</span>
               </div>
             </section>
             <section aria-labelledby="today-h" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "22px 24px", display: "flex", flexDirection: "column", gap: "14px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
-                <h2 id="today-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700" }}>今天的工作，正在练哪些节点</h2>
-                <span style={{ fontSize: "13px", color: "#5B6577" }}>10月19日 · 来自任务、修改和 AI 教练对话</span>
+                <h2 id="today-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700" }}>{tr("今天的工作，正在练哪些节点")}</h2>
+                <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("10月19日 · 来自任务、修改和 AI 教练对话")}</span>
               </div>
-              <p style={{ margin: "0", fontSize: "14px", color: "#5B6577", lineHeight: "1.7" }}>图谱不是另一套要额外上的课。你每天的任务、做出的修改和卡住的问题，都会被归到对应节点，推动进度或生成下一步练习。点击一行，在图谱中定位。</p>
+              <p style={{ margin: "0", fontSize: "14px", color: "#5B6577", lineHeight: "1.7" }}>{tr("图谱不是另一套要额外上的课。你每天的任务、做出的修改和卡住的问题，都会被归到对应节点，推动进度或生成下一步练习。点击一行，在图谱中定位。")}</p>
               <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {v.today.map((t: any, i0: number) => (
                   <button key={i0} type="button" onClick={t.go} style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "12px 16px", minHeight: "64px", padding: "12px 16px", borderRadius: "12px", border: `1px solid ${t.border}`, background: t.bg, color: "#1B2A4A", font: "inherit", textAlign: "left", cursor: "pointer" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "3px 10px", borderRadius: "6px", background: t.tBg, color: t.tFg, whiteSpace: "nowrap" }}>{t.type}</span>
-                    <span style={{ flex: "2 1 280px", fontSize: "15px", fontWeight: "500", lineHeight: "1.6" }}>{t.text}</span>
+                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "3px 10px", borderRadius: "6px", background: t.tBg, color: t.tFg, whiteSpace: "nowrap" }}>{tr(t.type)}</span>
+                    <span style={{ flex: "2 1 280px", fontSize: "15px", fontWeight: "500", lineHeight: "1.6" }}>{tr(t.text)}</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA8BC" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: "0" }}>
                       <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
                     <span style={{ flex: "1 1 260px", display: "flex", flexDirection: "column", gap: "2px" }}>
-                      <span style={{ fontSize: "14px", fontWeight: "700", color: "#1F5E43" }}>{t.nodeName}</span>
-                      <span style={{ fontSize: "13px", color: "#5B6577", lineHeight: "1.5" }}>{t.gain}</span>
+                      <span style={{ fontSize: "14px", fontWeight: "700", color: "#1F5E43" }}>{tr(t.nodeName)}</span>
+                      <span style={{ fontSize: "13px", color: "#5B6577", lineHeight: "1.5" }}>{tr(t.gain)}</span>
                     </span>
                   </button>
                 ))}
@@ -168,31 +169,31 @@ export default class SkillMapScreen extends DCLogic {
             </section>
             <section aria-labelledby="map-h" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "22px 24px", display: "flex", flexDirection: "column", gap: "16px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
-                <h2 id="map-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700" }}>4 个能力领域 × 4 个等级</h2>
+                <h2 id="map-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700" }}>{tr("4 个能力领域 × 4 个等级")}</h2>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", fontSize: "13px", color: "#5B6577" }}>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "14px", height: "14px", borderRadius: "4px", background: "#2E7D5B" }} />
-                    已掌握
+                    {tr("已掌握")}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "14px", height: "14px", borderRadius: "4px", border: "2px solid #E8A33D", boxSizing: "border-box" }} />
-                    学习中
+                    {tr("学习中")}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "14px", height: "14px", borderRadius: "4px", background: "#FBF0DC", border: "2px solid #E8A33D", boxSizing: "border-box" }} />
-                    本周重点
+                    {tr("本周重点")}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "14px", height: "14px", borderRadius: "4px", background: "#EEF0EC", border: "1px dashed #9AA8BC", boxSizing: "border-box" }} />
-                    未解锁
+                    {tr("未解锁")}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "20px", borderTop: "2px dashed #D08A1E" }} />
-                    跨领域前置
+                    {tr("跨领域前置")}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span style={{ background: "#1B2A4A", color: "#FFFFFF", fontSize: "11px", fontWeight: "700", padding: "1px 8px", borderRadius: "999px" }}>今日</span>
-                    今天的工作涉及
+                    <span style={{ background: "#1B2A4A", color: "#FFFFFF", fontSize: "11px", fontWeight: "700", padding: "1px 8px", borderRadius: "999px" }}>{tr("今日")}</span>
+                    {tr("今天的工作涉及")}
                   </span>
                 </div>
               </div>
@@ -309,36 +310,36 @@ export default class SkillMapScreen extends DCLogic {
                     </defs>
                     <path d="M 4 23 L 4 4" markerEnd="url(#dc-arrow-head-filled-13)" />
                   </svg>
-                  <div style={{ position: "absolute", left: "150px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#5B6577" }}>L1 基础</div>
-                  <div style={{ position: "absolute", left: "390px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#1B2A4A" }}>L2 应用 · 当前</div>
-                  <div style={{ position: "absolute", left: "630px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#7A4E0E" }}>L3 精通 · 目标</div>
-                  <div style={{ position: "absolute", left: "870px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#5B6577" }}>L4 专家</div>
+                  <div style={{ position: "absolute", left: "150px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#5B6577" }}>{tr("L1 基础")}</div>
+                  <div style={{ position: "absolute", left: "390px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#1B2A4A" }}>{tr("L2 应用 · 当前")}</div>
+                  <div style={{ position: "absolute", left: "630px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#7A4E0E" }}>{tr("L3 精通 · 目标")}</div>
+                  <div style={{ position: "absolute", left: "870px", top: "16px", width: "180px", textAlign: "center", fontSize: "14px", fontWeight: "700", color: "#5B6577" }}>{tr("L4 专家")}</div>
                   <div style={{ position: "absolute", left: "0px", top: "64px", width: "130px", height: "72px", display: "flex", alignItems: "center", fontSize: "15px", lineHeight: "1.5" }}>
                     <span>
-                      <b>客户沟通</b>
+                      <b>{tr("客户沟通")}</b>
                       <br />
-                      <span style={{ fontSize: "13px", color: "#5B6577" }}>65 分</span>
+                      <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("65 分")}</span>
                     </span>
                   </div>
                   <div style={{ position: "absolute", left: "0px", top: "184px", width: "130px", height: "72px", display: "flex", alignItems: "center", fontSize: "15px", lineHeight: "1.5" }}>
                     <span>
-                      <b>方案写作</b>
+                      <b>{tr("方案写作")}</b>
                       <br />
-                      <span style={{ fontSize: "13px", color: "#5B6577" }}>72 分</span>
+                      <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("72 分")}</span>
                     </span>
                   </div>
                   <div style={{ position: "absolute", left: "0px", top: "304px", width: "130px", height: "72px", display: "flex", alignItems: "center", fontSize: "15px", lineHeight: "1.5" }}>
                     <span>
-                      <b>合规知识</b>
+                      <b>{tr("合规知识")}</b>
                       <br />
-                      <span style={{ fontSize: "13px", color: "#7A4E0E", fontWeight: "600" }}>54 分 · 短板</span>
+                      <span style={{ fontSize: "13px", color: "#7A4E0E", fontWeight: "600" }}>{tr("54 分 · 短板")}</span>
                     </span>
                   </div>
                   <div style={{ position: "absolute", left: "0px", top: "424px", width: "130px", height: "72px", display: "flex", alignItems: "center", fontSize: "15px", lineHeight: "1.5" }}>
                     <span>
-                      <b>课程设计</b>
+                      <b>{tr("课程设计")}</b>
                       <br />
-                      <span style={{ fontSize: "13px", color: "#5B6577" }}>81 分</span>
+                      <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("81 分")}</span>
                     </span>
                   </div>
                   <button type="button" onClick={v.pick.c1} aria-pressed={v.pressed.c1} style={{ position: "absolute", left: "150px", top: "64px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.c1 }}>
@@ -346,9 +347,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>需求挖掘</b>
+                      <b>{tr("需求挖掘")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.c2} aria-pressed={v.pressed.c2} style={{ position: "absolute", left: "390px", top: "64px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.c2 }}>
@@ -356,9 +357,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>异议处理</b>
+                      <b>{tr("异议处理")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.c3} aria-pressed={v.pressed.c3} style={{ position: "absolute", left: "630px", top: "64px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "2px solid #E8A33D", background: "#FFFFFF", color: "#1B2A4A", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.c3 }}>
@@ -367,9 +368,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M12 4a8 8 0 0 1 7.6 5.5" />
                     </svg>
                     <span>
-                      <b>价格谈判</b>
+                      <b>{tr("价格谈判")}</b>
                       <br />
-                      学习中 · 40%
+                      {tr("学习中 · 40%")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.c4} aria-pressed={v.pressed.c4} style={{ position: "absolute", left: "870px", top: "64px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "1px dashed #9AA8BC", background: "#EEF0EC", color: "#5B6577", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.c4 }}>
@@ -378,9 +379,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
                     </svg>
                     <span>
-                      <b>战略客户经营</b>
+                      <b>{tr("战略客户经营")}</b>
                       <br />
-                      未解锁
+                      {tr("未解锁")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.p1} aria-pressed={v.pressed.p1} style={{ position: "absolute", left: "150px", top: "184px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.p1 }}>
@@ -388,9 +389,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>结构化写作</b>
+                      <b>{tr("结构化写作")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.p2} aria-pressed={v.pressed.p2} style={{ position: "absolute", left: "390px", top: "184px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.p2 }}>
@@ -398,9 +399,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>痛点价值映射</b>
+                      <b>{tr("痛点价值映射")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.p3} aria-pressed={v.pressed.p3} style={{ position: "absolute", left: "630px", top: "184px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "2px solid #E8A33D", background: "#FFFFFF", color: "#1B2A4A", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.p3 }}>
@@ -409,9 +410,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M12 4a8 8 0 1 1 -7.6 10.5" />
                     </svg>
                     <span>
-                      <b>安全先行提案</b>
+                      <b>{tr("安全先行提案")}</b>
                       <br />
-                      学习中 · 70%
+                      {tr("学习中 · 70%")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.p4} aria-pressed={v.pressed.p4} style={{ position: "absolute", left: "870px", top: "184px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "1px dashed #9AA8BC", background: "#EEF0EC", color: "#5B6577", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.p4 }}>
@@ -420,9 +421,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
                     </svg>
                     <span>
-                      <b>招投标方案</b>
+                      <b>{tr("招投标方案")}</b>
                       <br />
-                      未解锁
+                      {tr("未解锁")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.g1} aria-pressed={v.pressed.g1} style={{ position: "absolute", left: "150px", top: "304px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.g1 }}>
@@ -430,9 +431,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>PDPA 基础</b>
+                      <b>{tr("PDPA 基础")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.g2} aria-pressed={v.pressed.g2} style={{ position: "absolute", left: "390px", top: "304px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "2px solid #E8A33D", background: "#FBF0DC", color: "#1B2A4A", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.g2 }}>
@@ -441,9 +442,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M12 4a8 8 0 0 1 3 15.4" />
                     </svg>
                     <span>
-                      <b>数据安全与 ISO 27001</b>
+                      <b>{tr("数据安全与 ISO 27001")}</b>
                       <br />
-                      本周重点 · 55%
+                      {tr("本周重点 · 55%")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.g3} aria-pressed={v.pressed.g3} style={{ position: "absolute", left: "630px", top: "304px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "1px dashed #9AA8BC", background: "#EEF0EC", color: "#5B6577", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.g3 }}>
@@ -452,9 +453,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
                     </svg>
                     <span>
-                      <b>行业合规课程化</b>
+                      <b>{tr("行业合规课程化")}</b>
                       <br />
-                      未解锁
+                      {tr("未解锁")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.g4} aria-pressed={v.pressed.g4} style={{ position: "absolute", left: "870px", top: "304px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "1px dashed #9AA8BC", background: "#EEF0EC", color: "#5B6577", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.g4 }}>
@@ -463,9 +464,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
                     </svg>
                     <span>
-                      <b>合规培训顾问</b>
+                      <b>{tr("合规培训顾问")}</b>
                       <br />
-                      未解锁
+                      {tr("未解锁")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.k1} aria-pressed={v.pressed.k1} style={{ position: "absolute", left: "150px", top: "424px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.k1 }}>
@@ -473,9 +474,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>学习目标设计</b>
+                      <b>{tr("学习目标设计")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.k2} aria-pressed={v.pressed.k2} style={{ position: "absolute", left: "390px", top: "424px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.k2 }}>
@@ -483,9 +484,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>案例驱动设计</b>
+                      <b>{tr("案例驱动设计")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.k3} aria-pressed={v.pressed.k3} style={{ position: "absolute", left: "630px", top: "424px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "none", background: "#2E7D5B", color: "#FFFFFF", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.k3 }}>
@@ -493,9 +494,9 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M5 12l5 5 9-10" />
                     </svg>
                     <span>
-                      <b>WSQ 课程开发</b>
+                      <b>{tr("WSQ 课程开发")}</b>
                       <br />
-                      已掌握
+                      {tr("已掌握")}
                     </span>
                   </button>
                   <button type="button" onClick={v.pick.k4} aria-pressed={v.pressed.k4} style={{ position: "absolute", left: "870px", top: "424px", width: "180px", height: "72px", boxSizing: "border-box", padding: "8px 12px", display: "flex", alignItems: "center", gap: "10px", textAlign: "left", borderRadius: "12px", border: "2px solid #E8A33D", background: "#FFFFFF", color: "#1B2A4A", font: "inherit", fontSize: "14px", lineHeight: "1.45", cursor: "pointer", boxShadow: v.ring.k4 }}>
@@ -504,75 +505,75 @@ export default class SkillMapScreen extends DCLogic {
                       <path d="M12 4a8 8 0 0 1 4.7 1.5" />
                     </svg>
                     <span>
-                      <b>学习效果评估</b>
+                      <b>{tr("学习效果评估")}</b>
                       <br />
-                      学习中 · 20%
+                      {tr("学习中 · 20%")}
                     </span>
                   </button>
                   <div style={{ position: "absolute", left: "766px", top: "54px", width: "44px", height: "20px", borderRadius: "999px", background: "#1B2A4A", color: "#FFFFFF", fontSize: "11px", fontWeight: "700", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    今日
+                    {trBadge("今日")}
                   </div>
                   <div style={{ position: "absolute", left: "766px", top: "174px", width: "44px", height: "20px", borderRadius: "999px", background: "#1B2A4A", color: "#FFFFFF", fontSize: "11px", fontWeight: "700", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    今日
+                    {trBadge("今日")}
                   </div>
                   <div style={{ position: "absolute", left: "526px", top: "294px", width: "44px", height: "20px", borderRadius: "999px", background: "#1B2A4A", color: "#FFFFFF", fontSize: "11px", fontWeight: "700", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    今日
+                    {trBadge("今日")}
                   </div>
                 </div>
               </div>
-              <p style={{ margin: "0", fontSize: "13px", color: "#5B6577", lineHeight: "1.7" }}>同一领域内必须逐级解锁；橙色虚线表示跨领域前置：先学会“数据安全与 ISO 27001”，“安全先行提案”才能达标。点击任意节点查看详情。</p>
+              <p style={{ margin: "0", fontSize: "13px", color: "#5B6577", lineHeight: "1.7" }}>{tr("同一领域内必须逐级解锁；橙色虚线表示跨领域前置：先学会“数据安全与 ISO 27001”，“安全先行提案”才能达标。点击任意节点查看详情。")}</p>
             </section>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", alignItems: "flex-start" }}>
               <section aria-labelledby="node-h" style={{ flex: "999 1 560px", minWidth: "0", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "24px 26px", display: "flex", flexDirection: "column", gap: "20px" }}>
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-start", gap: "12px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{v.node.d}{" · "}{v.node.l}</span>
-                    <h2 id="node-h" style={{ margin: "0", fontSize: "22px", fontWeight: "700" }}>{v.node.n}</h2>
+                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr(v.node.d)}{" · "}{tr(v.node.l)}</span>
+                    <h2 id="node-h" style={{ margin: "0", fontSize: "22px", fontWeight: "700" }}>{tr(v.node.n)}</h2>
                   </div>
-                  <span style={{ fontSize: "13px", fontWeight: "700", padding: "4px 12px", borderRadius: "999px", background: v.node.sBg, color: v.node.sFg }}>{v.node.sLabel}</span>
+                  <span style={{ fontSize: "13px", fontWeight: "700", padding: "4px 12px", borderRadius: "999px", background: v.node.sBg, color: v.node.sFg }}>{tr(v.node.sLabel)}</span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>掌握标准</span>
-                  <span style={{ fontSize: "15px", lineHeight: "1.8" }}>{v.node.crit}</span>
+                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>{tr("掌握标准")}</span>
+                  <span style={{ fontSize: "15px", lineHeight: "1.8" }}>{tr(v.node.crit)}</span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>这个节点的五步闭环</span>
+                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>{tr("这个节点的五步闭环")}</span>
                   <ol style={{ listStyle: "none", margin: "0", padding: "0", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: "10px" }}>
                     {v.steps.map((st: any, i0: number) => (
                       <li key={i0} style={{ background: st.bg, border: `1px solid ${st.border}`, borderRadius: "12px", padding: "12px 14px", display: "flex", flexDirection: "column", gap: "6px" }}>
                         <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                           <span style={{ width: "26px", height: "26px", borderRadius: "50%", background: st.dotBg, color: st.dotFg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "700", flexShrink: "0" }}>
-                            {st.k}
+                            {trBadge(st.k)}
                           </span>
-                          <span style={{ fontSize: "12px", fontWeight: "700", color: st.stateFg }}>{st.stateLabel}</span>
+                          <span style={{ fontSize: "12px", fontWeight: "700", color: st.stateFg }}>{tr(st.stateLabel)}</span>
                         </span>
-                        <Link href={st.href} style={{ fontSize: "14px", fontWeight: "600", color: "#1B2A4A", textDecoration: "none", lineHeight: "1.5" }}>{st.t}</Link>
+                        <Link href={st.href} style={{ fontSize: "14px", fontWeight: "600", color: "#1B2A4A", textDecoration: "none", lineHeight: "1.5" }}>{tr(st.t)}</Link>
                       </li>
                     ))}
                   </ol>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
                   <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>前置条件</span>
+                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>{tr("前置条件")}</span>
                     {v.noPre ? (
-                      <span style={{ fontSize: "14px", color: "#5B6577" }}>无，入门节点</span>
+                      <span style={{ fontSize: "14px", color: "#5B6577" }}>{tr("无，入门节点")}</span>
                     ) : null}
                     {v.pre.map((pr: any, i0: number) => (
                       <div key={i0} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", minHeight: "40px", padding: "0 12px", borderRadius: "10px", background: "#F5F6F3", fontSize: "14px" }}>
-                        <span>{pr.name}</span>
-                        <span style={{ fontSize: "12px", fontWeight: "700", color: pr.fg, whiteSpace: "nowrap" }}>{pr.label}</span>
+                        <span>{tr(pr.name)}</span>
+                        <span style={{ fontSize: "12px", fontWeight: "700", color: pr.fg, whiteSpace: "nowrap" }}>{tr(pr.label)}</span>
                       </div>
                     ))}
-                    <span style={{ fontSize: "13px", color: "#5B6577", marginTop: "4px" }}>掌握后解锁：{v.node.unl}</span>
+                    <span style={{ fontSize: "13px", color: "#5B6577", marginTop: "4px" }}>{tr("掌握后解锁：")}{tr(v.node.unl)}</span>
                   </div>
                   <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>来自日常工作的证据</span>
+                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#5B6577" }}>{tr("来自日常工作的证据")}</span>
                     {v.noEv ? (
-                      <span style={{ fontSize: "14px", color: "#5B6577" }}>解锁后，相关任务的修改和反馈会自动记到这里。</span>
+                      <span style={{ fontSize: "14px", color: "#5B6577" }}>{tr("解锁后，相关任务的修改和反馈会自动记到这里。")}</span>
                     ) : null}
                     {v.ev.map((e: any, i0: number) => (
                       <Link key={i0} href="/lessons" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px", minHeight: "40px", padding: "0 12px", border: "1px solid #E3E6E1", borderRadius: "10px", fontSize: "14px", color: "#1B2A4A", textDecoration: "none" }}>
-                        {e}
+                        {tr(e)}
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                           <path d="M9 6l6 6-6 6" />
                         </svg>
@@ -583,26 +584,26 @@ export default class SkillMapScreen extends DCLogic {
                 {v.canGo ? (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", paddingTop: "4px" }}>
                     <Link href={v.nextHref} style={{ display: "inline-flex", alignItems: "center", height: "48px", padding: "0 22px", borderRadius: "10px", background: "#2E7D5B", color: "#FFFFFF", fontSize: "15px", fontWeight: "700", textDecoration: "none" }}>
-                      继续：{v.nextLabel}
+                      {tr("继续：")}{tr(v.nextLabel)}
                     </Link>
                     <Link href="/coach" style={{ display: "inline-flex", alignItems: "center", height: "48px", padding: "0 20px", borderRadius: "10px", border: "1px solid #CDD3DB", color: "#1B2A4A", fontSize: "15px", fontWeight: "600", textDecoration: "none", boxSizing: "border-box" }}>
-                      问 AI 教练怎么学
+                      {tr("问 AI 教练怎么学")}
                     </Link>
                   </div>
                 ) : null}
               </section>
               <aside style={{ flex: "1 1 320px", minWidth: "0", display: "flex", flexDirection: "column", gap: "20px" }}>
                 <section aria-labelledby="route-h" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <h2 id="route-h" style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>通往 L3 精通的路线</h2>
-                  <span style={{ fontSize: "13px", color: "#5B6577", lineHeight: "1.6" }}>L3 需要掌握 4 个领域的 L3 节点，还差 3 个。按依赖关系排好了顺序：</span>
+                  <h2 id="route-h" style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{tr("通往 L3 精通的路线")}</h2>
+                  <span style={{ fontSize: "13px", color: "#5B6577", lineHeight: "1.6" }}>{tr("L3 需要掌握 4 个领域的 L3 节点，还差 3 个。按依赖关系排好了顺序：")}</span>
                   {v.route.map((r: any, i0: number) => (
                     <button key={i0} type="button" onClick={r.go} style={{ display: "flex", alignItems: "center", gap: "12px", minHeight: "60px", padding: "8px 12px", borderRadius: "12px", border: `1px solid ${r.border}`, background: r.bg, color: "#1B2A4A", font: "inherit", textAlign: "left", cursor: "pointer" }}>
                       <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#1B2A4A", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "700", flexShrink: "0" }}>
-                        {r.no}
+                        {trBadge(r.no)}
                       </span>
                       <span style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-                        <span style={{ fontSize: "14px", fontWeight: "700" }}>{r.name}</span>
-                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{r.when}</span>
+                        <span style={{ fontSize: "14px", fontWeight: "700" }}>{tr(r.name)}</span>
+                        <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr(r.when)}</span>
                       </span>
                     </button>
                   ))}
@@ -610,26 +611,26 @@ export default class SkillMapScreen extends DCLogic {
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <path d="M5 21V4h11l-2 4 2 4H5" />
                     </svg>
-                    <span style={{ fontSize: "14px", fontWeight: "700" }}>第 5 周：L3 综合测评，通过后升级岗位等级</span>
+                    <span style={{ fontSize: "14px", fontWeight: "700" }}>{tr("第 5 周：L3 综合测评，通过后升级岗位等级")}</span>
                   </div>
                 </section>
                 <section aria-labelledby="sys-h" style={{ background: "#1B2A4A", color: "#FFFFFF", borderRadius: "18px", padding: "22px", display: "flex", flexDirection: "column", gap: "14px" }}>
-                  <h2 id="sys-h" style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>一切都连在这张图上</h2>
+                  <h2 id="sys-h" style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{tr("一切都连在这张图上")}</h2>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                     <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#E8A33D", marginTop: "8px", flexShrink: "0" }} />
-                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>每个视频、游戏关卡和测评题都对应一个节点，学完直接计入该节点的进度。</span>
+                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>{tr("每个视频、游戏关卡和测评题都对应一个节点，学完直接计入该节点的进度。")}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                     <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#E8A33D", marginTop: "8px", flexShrink: "0" }} />
-                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>真实任务里的修改和复盘收下的经验卡，会作为“用”和“沉淀”两步的证据。</span>
+                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>{tr("真实任务里的修改和复盘收下的经验卡，会作为“用”和“沉淀”两步的证据。")}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                     <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#E8A33D", marginTop: "8px", flexShrink: "0" }} />
-                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>每日 15 分钟的学习计划，从图谱上“下一个该学的节点”自动生成。</span>
+                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>{tr("每日 15 分钟的学习计划，从图谱上“下一个该学的节点”自动生成。")}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                     <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#E8A33D", marginTop: "8px", flexShrink: "0" }} />
-                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>AI 教练和工作 Agent 都读取这张图，知道你现在在哪、下一步去哪。</span>
+                    <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#E6EBF2" }}>{tr("AI 教练和工作 Agent 都读取这张图，知道你现在在哪、下一步去哪。")}</span>
                   </div>
                 </section>
               </aside>
@@ -637,26 +638,26 @@ export default class SkillMapScreen extends DCLogic {
             <section aria-labelledby="grow-h" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "24px 26px", display: "flex", flexDirection: "column", gap: "18px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "12px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                  <h2 id="grow-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700" }}>成长曲线</h2>
-                  <span style={{ fontSize: "13px", color: "#5B6577" }}>综合能力分 = 每周测评 × 50% + 日常任务证据 × 50%</span>
+                  <h2 id="grow-h" style={{ margin: "0", fontSize: "18px", fontWeight: "700" }}>{tr("成长曲线")}</h2>
+                  <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("综合能力分 = 每周测评 × 50% + 日常任务证据 × 50%")}</span>
                 </div>
                 <div style={{ display: "flex", gap: "16px", fontSize: "13px", color: "#5B6577" }}>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "20px", borderTop: "3px solid #2E7D5B" }} />
-                    实际
+                    {tr("实际")}
                   </span>
                   <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                     <span style={{ width: "20px", borderTop: "3px dashed #E8A33D" }} />
-                    按当前节奏预测
+                    {tr("按当前节奏预测")}
                   </span>
                 </div>
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", alignItems: "flex-start" }}>
                 <div style={{ flex: "999 1 560px", minWidth: "0" }}>
-                  <svg viewBox="0 0 740 290" width="100%" role="img" aria-label="成长曲线：第 1 周 52 分，第 3 到 5 周停在 55 到 57 分的平台期，开始任务驱动练习后上升到本周 74 分，预计第 13 周达到 81 分、进入 L3 精通" style={{ display: "block", fontFamily: "'Noto Sans SC', 'Microsoft YaHei', sans-serif" }}>
+                  <svg viewBox="0 0 740 290" width="100%" role="img" aria-label={tr("成长曲线：第 1 周 52 分，第 3 到 5 周停在 55 到 57 分的平台期，开始任务驱动练习后上升到本周 74 分，预计第 13 周达到 81 分、进入 L3 精通")} style={{ display: "block", fontFamily: "'Noto Sans SC', 'Microsoft YaHei', sans-serif" }}>
                     <rect x="56" y="24" width="660" height="44" fill="#FDF7EC" />
                     <rect x="166" y="24" width="110" height="220" fill="#F0F2EE" />
-                    <text x="221" y="44" textAnchor="middle" fontSize="13" fontWeight="700" fill="#5B6577">平台期</text>
+                    <text x="221" y="44" textAnchor="middle" fontSize="13" fontWeight="700" fill="#5B6577">{tr("平台期")}</text>
                     <line x1="56" y1="244" x2="716" y2="244" stroke="#CDD3DB" strokeWidth="1" />
                     <line x1="56" y1="200" x2="716" y2="200" stroke="#EEF0EC" strokeWidth="1" />
                     <line x1="56" y1="156" x2="716" y2="156" stroke="#9AA8BC" strokeWidth="1" strokeDasharray="4 4" />
@@ -668,8 +669,8 @@ export default class SkillMapScreen extends DCLogic {
                     <text x="48" y="116" textAnchor="end" fontSize="12" fill="#5B6577">70</text>
                     <text x="48" y="72" textAnchor="end" fontSize="12" fill="#5B6577">80</text>
                     <text x="48" y="28" textAnchor="end" fontSize="12" fill="#5B6577">90</text>
-                    <text x="710" y="150" textAnchor="end" fontSize="12" fontWeight="700" fill="#5B6577">L2 应用 · 60</text>
-                    <text x="62" y="62" fontSize="12" fontWeight="700" fill="#7A4E0E">L3 精通 · 80</text>
+                    <text x="710" y="150" textAnchor="end" fontSize="12" fontWeight="700" fill="#5B6577">{tr("L2 应用 · 60")}</text>
+                    <text x="62" y="62" fontSize="12" fontWeight="700" fill="#7A4E0E">{tr("L3 精通 · 80")}</text>
                     <polyline points="441,94.4 496,85.6 551,81.2 606,76.8 661,72.4 716,63.6" fill="none" stroke="#E8A33D" strokeWidth="3" strokeDasharray="7 6" strokeLinecap="round" strokeLinejoin="round" />
                     <polyline points="56,191.2 111,182.4 166,178 221,173.6 276,169.2 331,142.8 386,120.8 441,94.4" fill="none" stroke="#2E7D5B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                     <circle cx="56" cy="191.2" r="4" fill="#FFFFFF" stroke="#2E7D5B" strokeWidth="2" />
@@ -681,10 +682,10 @@ export default class SkillMapScreen extends DCLogic {
                     <circle cx="386" cy="120.8" r="5" fill="#1B2A4A" stroke="#FFFFFF" strokeWidth="2" />
                     <circle cx="441" cy="94.4" r="7" fill="#2E7D5B" stroke="#FFFFFF" strokeWidth="2" />
                     <circle cx="716" cy="63.6" r="5" fill="#FFFFFF" stroke="#E8A33D" strokeWidth="2.5" />
-                    <text x="284" y="196" fontSize="12" fontWeight="700" fill="#1B2A4A">① 开始任务驱动练习 + 每日复盘</text>
-                    <text x="394" y="140" fontSize="12" fontWeight="700" fill="#1B2A4A">② 收下 L-0231</text>
-                    <text x="451" y="118" fontSize="13" fontWeight="700" fill="#1F5E43">本周 74 分</text>
-                    <text x="712" y="50" textAnchor="end" fontSize="12" fontWeight="700" fill="#7A4E0E">L3 综合测评</text>
+                    <text x="284" y="196" fontSize="12" fontWeight="700" fill="#1B2A4A">{tr("① 开始任务驱动练习 + 每日复盘")}</text>
+                    <text x="394" y="140" fontSize="12" fontWeight="700" fill="#1B2A4A">{tr("② 收下 L-0231")}</text>
+                    <text x="451" y="118" fontSize="13" fontWeight="700" fill="#1F5E43">{tr("本周 74 分")}</text>
+                    <text x="712" y="50" textAnchor="end" fontSize="12" fontWeight="700" fill="#7A4E0E">{tr("L3 综合测评")}</text>
                     <text x="56" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W1</text>
                     <text x="111" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W2</text>
                     <text x="166" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W3</text>
@@ -692,7 +693,7 @@ export default class SkillMapScreen extends DCLogic {
                     <text x="276" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W5</text>
                     <text x="331" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W6</text>
                     <text x="386" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W7</text>
-                    <text x="441" y="270" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1B2A4A">本周</text>
+                    <text x="441" y="270" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1B2A4A">{tr("本周")}</text>
                     <text x="496" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W9</text>
                     <text x="551" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W10</text>
                     <text x="606" y="270" textAnchor="middle" fontSize="12" fill="#5B6577">W11</text>
@@ -701,25 +702,25 @@ export default class SkillMapScreen extends DCLogic {
                   </svg>
                 </div>
                 <div style={{ flex: "1 1 280px", minWidth: "0", display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <span style={{ fontSize: "14px", fontWeight: "700" }}>成长的四个阶段</span>
+                  <span style={{ fontSize: "14px", fontWeight: "700" }}>{tr("成长的四个阶段")}</span>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#EEF1F6", whiteSpace: "nowrap" }}>入门</span>
-                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>W1–2：新知识多，分数上升快。</span>
+                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#EEF1F6", whiteSpace: "nowrap" }}>{tr("入门")}</span>
+                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>{tr("W1–2：新知识多，分数上升快。")}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#EEF0EC", whiteSpace: "nowrap" }}>平台期</span>
-                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>W3–5：只看视频、不在工作里用，分数停在 55 分左右。</span>
+                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#EEF0EC", whiteSpace: "nowrap" }}>{tr("平台期")}</span>
+                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>{tr("W3–5：只看视频、不在工作里用，分数停在 55 分左右。")}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#E6F2EC", color: "#1F5E43", whiteSpace: "nowrap" }}>突破</span>
-                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>W6–8：学习内容来自当天任务，修改变成经验，每周涨 5 分以上。</span>
+                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#E6F2EC", color: "#1F5E43", whiteSpace: "nowrap" }}>{tr("突破")}</span>
+                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>{tr("W6–8：学习内容来自当天任务，修改变成经验，每周涨 5 分以上。")}</span>
                   </div>
                   <div style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
-                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#FBF0DC", color: "#7A4E0E", whiteSpace: "nowrap" }}>精通</span>
-                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>预计 W13 通过 L3 综合测评，升级岗位等级。</span>
+                    <span style={{ fontSize: "12px", fontWeight: "700", padding: "2px 8px", borderRadius: "6px", background: "#FBF0DC", color: "#7A4E0E", whiteSpace: "nowrap" }}>{tr("精通")}</span>
+                    <span style={{ fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>{tr("预计 W13 通过 L3 综合测评，升级岗位等级。")}</span>
                   </div>
                   <div style={{ background: "#F5F6F3", borderRadius: "12px", padding: "14px 16px", fontSize: "13px", lineHeight: "1.7", color: "#1B2A4A" }}>
-                    平台期还会再出现。连续 2 周增长不到 2 分时，AI 教练会主动找你，换一种练法，比如从看视频改成模拟陪练。
+                    {tr("平台期还会再出现。连续 2 周增长不到 2 分时，AI 教练会主动找你，换一种练法，比如从看视频改成模拟陪练。")}
                   </div>
                 </div>
               </div>

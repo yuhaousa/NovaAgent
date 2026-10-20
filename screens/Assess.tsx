@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 能力测评
 export default class AssessScreen extends DCLogic {
@@ -83,83 +84,83 @@ export default class AssessScreen extends DCLogic {
           <div style={{ maxWidth: "1040px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "24px" }}>
             <header style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-end", justifyContent: "space-between", gap: "16px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>能力测评</h1>
-                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577" }}>每两周一次，题目来自你的真实场景。结果会告诉 Agent 该在哪些任务里多提醒你。</p>
+                <h1 style={{ margin: "0", fontSize: "30px", fontWeight: "700" }}>{tr("能力测评")}</h1>
+                <p style={{ margin: "0", fontSize: "15px", color: "#5B6577" }}>{tr("每两周一次，题目来自你的真实场景。结果会告诉 Agent 该在哪些任务里多提醒你。")}</p>
               </div>
-              <div role="tablist" aria-label="视图" style={{ display: "flex", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "12px", padding: "4px" }}>
+              <div role="tablist" aria-label={tr("视图")} style={{ display: "flex", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "12px", padding: "4px" }}>
                 <button type="button" role="tab" aria-selected={v.quizSel} onClick={v.showQuiz} style={{ height: "40px", padding: "0 16px", borderRadius: "8px", border: "none", background: v.quizTabBg, color: v.quizTabFg, font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
-                  答题
+                  {tr("答题")}
                 </button>
                 <button type="button" role="tab" aria-selected={v.resSel} onClick={v.showResult} style={{ height: "40px", padding: "0 16px", borderRadius: "8px", border: "none", background: v.resTabBg, color: v.resTabFg, font: "inherit", fontSize: "14px", fontWeight: "600", cursor: "pointer" }}>
-                  测评报告
+                  {tr("测评报告")}
                 </button>
               </div>
             </header>
             {v.inQuiz ? (
-              <section aria-label="答题" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "28px 32px", display: "flex", flexDirection: "column", gap: "22px" }}>
+              <section aria-label={tr("答题")} style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "28px 32px", display: "flex", flexDirection: "column", gap: "22px" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", fontSize: "14px" }}>
-                    <span style={{ fontWeight: "700" }}>{"第 "}{v.qNo}{" / 3 题"}</span>
-                    <span style={{ color: "#5B6577" }}>约 3 分钟 · 不计时</span>
+                    <span style={{ fontWeight: "700" }}>{tr("第 ")}{tr(v.qNo)}{tr(" / 3 题")}</span>
+                    <span style={{ color: "#5B6577" }}>{tr("约 3 分钟 · 不计时")}</span>
                   </div>
                   <div style={{ height: "8px", borderRadius: "4px", background: "#EEF0EC" }}><div style={{ height: "8px", borderRadius: "4px", background: "#2E7D5B", width: `${v.progress}%` }} /></div>
                 </div>
-                <span style={{ alignSelf: "flex-start", background: "#EEF1F6", fontSize: "13px", fontWeight: "600", padding: "4px 12px", borderRadius: "6px" }}>能力项：{v.q.skill}</span>
-                <h2 style={{ margin: "0", fontSize: "21px", fontWeight: "700", lineHeight: "1.6" }}>{v.q.text}</h2>
+                <span style={{ alignSelf: "flex-start", background: "#EEF1F6", fontSize: "13px", fontWeight: "600", padding: "4px 12px", borderRadius: "6px" }}>{tr("能力项：")}{tr(v.q.skill)}</span>
+                <h2 style={{ margin: "0", fontSize: "21px", fontWeight: "700", lineHeight: "1.6" }}>{tr(v.q.text)}</h2>
                 <fieldset style={{ border: "none", margin: "0", padding: "0", display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <legend style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>选项</legend>
+                  <legend style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>{trBadge("选项")}</legend>
                   {v.opts.map((o: any, i0: number) => (
                     <label key={i0} htmlFor={o.cid} style={{ display: "flex", alignItems: "center", gap: "14px", minHeight: "56px", padding: "12px 16px", borderRadius: "12px", border: `2px solid ${o.border}`, background: o.bg, fontSize: "16px", lineHeight: "1.6", cursor: "pointer", boxSizing: "border-box" }}>
                       <input type="radio" name="q" id={o.cid} checked={o.on} onChange={o.pick} style={{ width: "20px", height: "20px", margin: "0", accentColor: "#2E7D5B", flexShrink: "0" }} />
-                      {" "}{o.text}{" "}
+                      {" "}{tr(o.text)}{" "}
                     </label>
                   ))}
                 </fieldset>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
-                  <span style={{ fontSize: "13px", color: "#5B6577" }}>提交后可以在报告里看到每题解析</span>
+                  <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr("提交后可以在报告里看到每题解析")}</span>
                   <button type="button" onClick={v.next} disabled={v.cantNext} style={{ height: "48px", padding: "0 24px", borderRadius: "10px", border: "none", background: v.nextBg, color: "#FFFFFF", font: "inherit", fontSize: "15px", fontWeight: "700", cursor: "pointer" }}>
-                    {v.nextLabel}
+                    {tr(v.nextLabel)}
                   </button>
                 </div>
               </section>
             ) : null}
             {v.inResult ? (
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                <section aria-label="总分" style={{ background: "#1B2A4A", color: "#FFFFFF", borderRadius: "18px", padding: "28px 32px", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "28px" }}>
+                <section aria-label={tr("总分")} style={{ background: "#1B2A4A", color: "#FFFFFF", borderRadius: "18px", padding: "28px 32px", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "28px" }}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                    <span style={{ fontSize: "14px", color: "#C9D2DF" }}>综合得分 · 10月19日</span>
+                    <span style={{ fontSize: "14px", color: "#C9D2DF" }}>{tr("综合得分 · 10月19日")}</span>
                     <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
                       <span style={{ fontSize: "56px", fontWeight: "700", lineHeight: "1" }}>74</span>
-                      <span style={{ fontSize: "16px", color: "#E8A33D", fontWeight: "700" }}>比上次 +6</span>
+                      <span style={{ fontSize: "16px", color: "#E8A33D", fontWeight: "700" }}>{tr("比上次 +6")}</span>
                     </div>
                   </div>
                   <div style={{ flex: "1 1 320px", display: "flex", flexDirection: "column", gap: "6px", fontSize: "15px", lineHeight: "1.7", color: "#E6EBF2" }}>
-                    <span style={{ fontWeight: "700", color: "#FFFFFF" }}>AI 诊断</span>
-                    <span>方案写作和客户沟通进步明显，这和你最近收下的几条提案经验一致。合规知识仍是短板：遇到行业法规细节时，你倾向于跳过而不是给出依据。</span>
+                    <span style={{ fontWeight: "700", color: "#FFFFFF" }}>{tr("AI 诊断")}</span>
+                    <span>{tr("方案写作和客户沟通进步明显，这和你最近收下的几条提案经验一致。合规知识仍是短板：遇到行业法规细节时，你倾向于跳过而不是给出依据。")}</span>
                   </div>
                 </section>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", alignItems: "flex-start" }}>
                   <section aria-labelledby="sk-h" style={{ flex: "999 1 460px", minWidth: "0", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "16px", padding: "24px 26px", display: "flex", flexDirection: "column", gap: "18px" }}>
                     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "baseline", gap: "8px" }}>
-                      <h2 id="sk-h" style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>各项能力</h2>
+                      <h2 id="sk-h" style={{ margin: "0", fontSize: "17px", fontWeight: "700" }}>{tr("各项能力")}</h2>
                       <div style={{ display: "flex", gap: "14px", fontSize: "12px", color: "#5B6577" }}>
                         <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                           <span style={{ width: "12px", height: "6px", borderRadius: "3px", background: "#CDD3DB" }} />
-                          上次
+                          {tr("上次")}
                         </span>
                         <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                           <span style={{ width: "12px", height: "6px", borderRadius: "3px", background: "#2E7D5B" }} />
-                          本次
+                          {tr("本次")}
                         </span>
                       </div>
                     </div>
                     {v.skills.map((k: any, i0: number) => (
                       <div key={i0} style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", fontSize: "14px" }}>
-                          <span style={{ fontWeight: "600" }}>{k.name}</span>
+                          <span style={{ fontWeight: "600" }}>{tr(k.name)}</span>
                           <span>
-                            <span style={{ fontWeight: "700" }}>{k.now}</span>
-                            <span style={{ color: k.deltaFg, marginLeft: "8px", fontSize: "13px", fontWeight: "700" }}>{k.delta}</span>
+                            <span style={{ fontWeight: "700" }}>{tr(k.now)}</span>
+                            <span style={{ color: k.deltaFg, marginLeft: "8px", fontSize: "13px", fontWeight: "700" }}>{tr(k.delta)}</span>
                           </span>
                         </div>
                         <div style={{ height: "6px", borderRadius: "3px", background: "#F0F2EE" }}>
@@ -173,14 +174,14 @@ export default class AssessScreen extends DCLogic {
                   </section>
                   <aside style={{ flex: "1 1 300px", minWidth: "0", display: "flex", flexDirection: "column", gap: "16px" }}>
                     <section aria-labelledby="rec-h" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "16px", padding: "22px", display: "flex", flexDirection: "column", gap: "12px" }}>
-                      <h2 id="rec-h" style={{ margin: "0", fontSize: "16px", fontWeight: "700" }}>补短板：合规知识</h2>
+                      <h2 id="rec-h" style={{ margin: "0", fontSize: "16px", fontWeight: "700" }}>{tr("补短板：合规知识")}</h2>
                       <Link href="/video" style={{ display: "flex", alignItems: "center", gap: "12px", minHeight: "52px", padding: "8px 12px", border: "1px solid #E3E6E1", borderRadius: "10px", color: "#1B2A4A", textDecoration: "none" }}>
                         <span style={{ width: "32px", height: "32px", borderRadius: "8px", background: "#1B2A4A", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: "0" }}>
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M8 5l11 7-11 7z" /></svg>
                         </span>
                         <span style={{ display: "flex", flexDirection: "column" }}>
-                          <span style={{ fontSize: "14px", fontWeight: "600" }}>PDPA 在培训数据里的 3 个坑</span>
-                          <span style={{ fontSize: "12px", color: "#5B6577" }}>AI 视频 · 3 分钟</span>
+                          <span style={{ fontSize: "14px", fontWeight: "600" }}>{tr("PDPA 在培训数据里的 3 个坑")}</span>
+                          <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr("AI 视频 · 3 分钟")}</span>
                         </span>
                       </Link>
                       <Link href="/game" style={{ display: "flex", alignItems: "center", gap: "12px", minHeight: "52px", padding: "8px 12px", border: "1px solid #E3E6E1", borderRadius: "10px", color: "#1B2A4A", textDecoration: "none" }}>
@@ -190,8 +191,8 @@ export default class AssessScreen extends DCLogic {
                           </svg>
                         </span>
                         <span style={{ display: "flex", flexDirection: "column" }}>
-                          <span style={{ fontSize: "14px", fontWeight: "600" }}>情景闯关：IT 总监的五个问题</span>
-                          <span style={{ fontSize: "12px", color: "#5B6577" }}>学习游戏 · 5 分钟</span>
+                          <span style={{ fontSize: "14px", fontWeight: "600" }}>{tr("情景闯关：IT 总监的五个问题")}</span>
+                          <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr("学习游戏 · 5 分钟")}</span>
                         </span>
                       </Link>
                       <Link href="/coach" style={{ display: "flex", alignItems: "center", gap: "12px", minHeight: "52px", padding: "8px 12px", border: "1px solid #E3E6E1", borderRadius: "10px", color: "#1B2A4A", textDecoration: "none" }}>
@@ -201,8 +202,8 @@ export default class AssessScreen extends DCLogic {
                           </svg>
                         </span>
                         <span style={{ display: "flex", flexDirection: "column" }}>
-                          <span style={{ fontSize: "14px", fontWeight: "600" }}>和 AI 教练模拟一次合规答疑</span>
-                          <span style={{ fontSize: "12px", color: "#5B6577" }}>对话陪练 · 10 分钟</span>
+                          <span style={{ fontSize: "14px", fontWeight: "600" }}>{tr("和 AI 教练模拟一次合规答疑")}</span>
+                          <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr("对话陪练 · 10 分钟")}</span>
                         </span>
                       </Link>
                     </section>
@@ -213,7 +214,7 @@ export default class AssessScreen extends DCLogic {
                         <path d="M20 12a8 8 0 0 1-14 5.3L4 15" />
                         <path d="M4 20v-5h5" />
                       </svg>
-                      <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#1F5E43" }}>测评结果已同步给 Agent：在合规相关任务中，它会多提醒你 2 条经验，并在输出里主动标出需要法规依据的地方。</span>
+                      <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#1F5E43" }}>{tr("测评结果已同步给 Agent：在合规相关任务中，它会多提醒你 2 条经验，并在输出里主动标出需要法规依据的地方。")}</span>
                     </section>
                   </aside>
                 </div>

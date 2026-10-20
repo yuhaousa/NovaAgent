@@ -5,7 +5,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 export type Lang = "zh" | "en";
 
 const KEY = "novaagent.lang";
-const LangContext = createContext<{ lang: Lang; setLang: (lang: Lang) => void }>({ lang: "zh", setLang: () => {} });
+export const LangContext = createContext<{ lang: Lang; setLang: (lang: Lang) => void }>({ lang: "zh", setLang: () => {} });
 
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("zh");

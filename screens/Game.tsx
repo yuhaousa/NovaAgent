@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 情景闯关
 export default class GameScreen extends DCLogic {
@@ -104,83 +105,83 @@ export default class GameScreen extends DCLogic {
         <main style={{ flex: "999 1 560px", minWidth: "0", padding: "32px 40px 56px", boxSizing: "border-box" }}>
           <div style={{ maxWidth: "920px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "22px" }}>
             <div style={{ fontSize: "14px", color: "#5B6577", display: "flex", gap: "8px" }}>
-              <Link href="/learn" style={{ textDecoration: "none", fontWeight: "600" }}>学习</Link>
+              <Link href="/learn" style={{ textDecoration: "none", fontWeight: "600" }}>{tr("学习")}</Link>
               <span>/</span>
-              <span>学习游戏</span>
+              <span>{tr("学习游戏")}</span>
             </div>
             <header style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                <h1 style={{ margin: "0", fontSize: "26px", fontWeight: "700" }}>情景闯关 · 客户异议应对</h1>
-                <span style={{ fontSize: "14px", color: "#5B6577" }}>题目来自你最近的真实客户沟通</span>
+                <h1 style={{ margin: "0", fontSize: "26px", fontWeight: "700" }}>{tr("情景闯关 · 客户异议应对")}</h1>
+                <span style={{ fontSize: "14px", color: "#5B6577" }}>{tr("题目来自你最近的真实客户沟通")}</span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
-                <div role="img" aria-label={`剩余生命 ${v.lives} / 3`} style={{ display: "flex", gap: "4px", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "999px", padding: "8px 14px" }}>
+                <div role="img" aria-label={tr(`剩余生命 ${v.lives} / 3`)} style={{ display: "flex", gap: "4px", background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "999px", padding: "8px 14px" }}>
                   {v.hearts.map((h: any, i0: number) => (
                     <svg key={i0} width="18" height="18" viewBox="0 0 24 24" fill={h.fill} stroke="#B3402E" strokeWidth="2" strokeLinejoin="round" aria-hidden="true">
                       <path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" />
                     </svg>
                   ))}
                 </div>
-                <span style={{ background: "#FBF0DC", color: "#7A4E0E", borderRadius: "999px", padding: "8px 14px", fontSize: "14px", fontWeight: "700" }}>{v.xp}{" XP"}</span>
+                <span style={{ background: "#FBF0DC", color: "#7A4E0E", borderRadius: "999px", padding: "8px 14px", fontSize: "14px", fontWeight: "700" }}>{tr(v.xp)}{" XP"}</span>
               </div>
             </header>
-            <div role="img" aria-label={`关卡进度：第 ${v.levelNo} 关，共 5 关`} style={{ display: "flex", alignItems: "center", gap: "0" }}>
+            <div role="img" aria-label={tr(`关卡进度：第 ${v.levelNo} 关，共 5 关`)} style={{ display: "flex", alignItems: "center", gap: "0" }}>
               {v.levels.map((lv: any, i0: number) => (
                 <div key={i0} style={{ flex: "1", display: "flex", alignItems: "center" }}>
                   <span style={{ width: "34px", height: "34px", borderRadius: "50%", background: lv.bg, color: lv.fg, border: `2px solid ${lv.border}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", fontWeight: "700", boxSizing: "border-box", flexShrink: "0" }}>
-                    {lv.n}
+                    {trBadge(lv.n)}
                   </span>
                   <span style={{ flex: "1", height: "3px", background: lv.line, margin: "0 6px" }} />
                 </div>
               ))}
             </div>
             {v.playing ? (
-              <section aria-label="当前关卡" style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "28px", display: "flex", flexDirection: "column", gap: "22px" }}>
+              <section aria-label={tr("当前关卡")} style={{ background: "#FFFFFF", border: "1px solid #E3E6E1", borderRadius: "18px", padding: "28px", display: "flex", flexDirection: "column", gap: "22px" }}>
                 <div style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
                   <span style={{ width: "52px", height: "52px", borderRadius: "50%", background: "#1B2A4A", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", fontWeight: "700", flexShrink: "0" }}>
-                    {v.round.initials}
+                    {trBadge(v.round.initials)}
                   </span>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px", minWidth: "0" }}>
-                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{v.round.who}</span>
-                    <div style={{ background: "#EEF1F6", borderRadius: "4px 16px 16px 16px", padding: "14px 18px", fontSize: "18px", fontWeight: "500", lineHeight: "1.6" }}>{v.round.says}</div>
+                    <span style={{ fontSize: "13px", color: "#5B6577" }}>{tr(v.round.who)}</span>
+                    <div style={{ background: "#EEF1F6", borderRadius: "4px 16px 16px 16px", padding: "14px 18px", fontSize: "18px", fontWeight: "500", lineHeight: "1.6" }}>{tr(v.round.says)}</div>
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <span style={{ fontSize: "14px", fontWeight: "700" }}>你会怎么回答？</span>
+                  <span style={{ fontSize: "14px", fontWeight: "700" }}>{tr("你会怎么回答？")}</span>
                   {v.options.map((o: any, i0: number) => (
                     <button key={i0} type="button" onClick={o.pick} disabled={o.locked} style={{ textAlign: "left", minHeight: "56px", padding: "14px 16px", borderRadius: "12px", border: `2px solid ${o.border}`, background: o.bg, color: "#1B2A4A", font: "inherit", fontSize: "15px", lineHeight: "1.6", cursor: "pointer", display: "flex", alignItems: "flex-start", gap: "12px" }}>
                       <span style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#FFFFFF", border: "1px solid #CDD3DB", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "13px", fontWeight: "700", flexShrink: "0", boxSizing: "border-box" }}>
-                        {o.key}
+                        {trBadge(o.key)}
                       </span>
-                      <span>{o.text}</span>
+                      <span>{tr(o.text)}</span>
                     </button>
                   ))}
                 </div>
                 {v.answered ? (
                   <div role="status" style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px", background: v.fbBg, borderRadius: "12px", padding: "16px 18px" }}>
                     <div style={{ flex: "1 1 320px", display: "flex", flexDirection: "column", gap: "4px" }}>
-                      <span style={{ fontSize: "16px", fontWeight: "700", color: v.fbFg }}>{v.fbTitle}</span>
-                      <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#1B2A4A" }}>{v.fbText}</span>
-                      <Link href="/lessons" style={{ fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>相关经验：{v.round.lesson}</Link>
+                      <span style={{ fontSize: "16px", fontWeight: "700", color: v.fbFg }}>{tr(v.fbTitle)}</span>
+                      <span style={{ fontSize: "14px", lineHeight: "1.7", color: "#1B2A4A" }}>{tr(v.fbText)}</span>
+                      <Link href="/lessons" style={{ fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>{tr("相关经验：")}{tr(v.round.lesson)}</Link>
                     </div>
                     <button type="button" onClick={v.next} style={{ height: "48px", padding: "0 22px", borderRadius: "10px", border: "none", background: "#1B2A4A", color: "#FFFFFF", font: "inherit", fontSize: "15px", fontWeight: "700", cursor: "pointer" }}>
-                      {v.nextLabel}
+                      {tr(v.nextLabel)}
                     </button>
                   </div>
                 ) : null}
               </section>
             ) : null}
             {v.finished ? (
-              <section aria-label="闯关结果" style={{ background: "#1B2A4A", color: "#FFFFFF", borderRadius: "18px", padding: "36px 32px", display: "flex", flexDirection: "column", alignItems: "center", gap: "14px", textAlign: "center" }}>
-                <span style={{ fontSize: "14px", color: "#E8A33D", fontWeight: "700" }}>本轮完成</span>
-                <span style={{ fontSize: "44px", fontWeight: "700" }}>+{v.xp}{" XP"}</span>
-                <span style={{ fontSize: "16px", color: "#C9D2DF" }}>{"答对 "}{v.rightCount}{" / 2 · 答错的题已加入明天的复习"}</span>
+              <section aria-label={tr("闯关结果")} style={{ background: "#1B2A4A", color: "#FFFFFF", borderRadius: "18px", padding: "36px 32px", display: "flex", flexDirection: "column", alignItems: "center", gap: "14px", textAlign: "center" }}>
+                <span style={{ fontSize: "14px", color: "#E8A33D", fontWeight: "700" }}>{tr("本轮完成")}</span>
+                <span style={{ fontSize: "44px", fontWeight: "700" }}>+{tr(v.xp)}{" XP"}</span>
+                <span style={{ fontSize: "16px", color: "#C9D2DF" }}>{tr("答对 ")}{tr(v.rightCount)}{tr(" / 2 · 答错的题已加入明天的复习")}</span>
                 <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center", marginTop: "8px" }}>
                   <button type="button" onClick={v.restart} style={{ height: "48px", padding: "0 22px", borderRadius: "10px", border: "none", background: "#E8A33D", color: "#1B2A4A", font: "inherit", fontSize: "15px", fontWeight: "700", cursor: "pointer" }}>
-                    再玩一次
+                    {tr("再玩一次")}
                   </button>
                   <Link href="/learn" style={{ display: "inline-flex", alignItems: "center", height: "48px", padding: "0 22px", borderRadius: "10px", border: "1px solid rgba(255,255,255,0.4)", color: "#FFFFFF", fontSize: "15px", fontWeight: "700", textDecoration: "none", boxSizing: "border-box" }}>
-                    返回学习
+                    {tr("返回学习")}
                   </Link>
                 </div>
               </section>

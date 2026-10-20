@@ -5,3 +5,6 @@ body{font-family:'Noto Sans SC','Microsoft YaHei',sans-serif}
 a{color:#2E7D5B}
 a:hover{color:#1F5E43}
 :focus-visible{outline:2px solid #E8A33D;outline-offset:2px}
+
+/* English labels run longer than Chinese: keep fixed-height action buttons on one line */
+html[lang="en"] button[style^="height: 3"],html[lang="en"] button[style^="height: 4"],html[lang="en"] button[style*="; height: 3"],html[lang="en"] button[style*="; height: 4"],html[lang="en"] a[style^="height: 3"],html[lang="en"] a[style^="height: 4"],html[lang="en"] a[style*="; height: 3"],html[lang="en"] a[style*="; height: 4"]{flex-shrink:0;white-space:nowrap}

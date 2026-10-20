@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { AgentNav } from "@/components/agent-nav";
 import { DCLogic } from "@/components/dc";
+import { tr, trBadge } from "@/lib/i18n/tr";
 
 // 对话式首页
 export default class Home2Screen extends DCLogic {
@@ -56,11 +57,11 @@ export default class Home2Screen extends DCLogic {
         <AgentNav active={["/"]} />
         <main style={{ flex: "999 1 560px", minWidth: "0", padding: "88px 40px 40px", boxSizing: "border-box", display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ width: "100%", maxWidth: "820px", display: "flex", flexDirection: "column", alignItems: "center", gap: "22px" }}>
-            <h1 style={{ margin: "0", fontSize: "36px", fontWeight: "700", textAlign: "center" }}>Yu，今天想做点什么？</h1>
-            <div role="tablist" aria-label="模式" style={{ display: "flex", gap: "4px", background: "#F1F2EF", borderRadius: "14px", padding: "4px" }}>
+            <h1 style={{ margin: "0", fontSize: "36px", fontWeight: "700", textAlign: "center" }}>{tr("Yu，今天想做点什么？")}</h1>
+            <div role="tablist" aria-label={tr("模式")} style={{ display: "flex", gap: "4px", background: "#F1F2EF", borderRadius: "14px", padding: "4px" }}>
               {v.modes.map((m: any, i0: number) => (
                 <button key={i0} type="button" role="tab" aria-selected={m.sel} onClick={m.pick} style={{ height: "40px", padding: "0 18px", borderRadius: "10px", border: "none", background: m.bg, boxShadow: m.shadow, color: "#1B2A4A", font: "inherit", fontSize: "15px", fontWeight: m.weight, cursor: "pointer" }}>
-                  {m.label}
+                  {tr(m.label)}
                 </button>
               ))}
             </div>
@@ -68,34 +69,34 @@ export default class Home2Screen extends DCLogic {
               {v.chips.map((c: any, i0: number) => (
                 <button key={i0} type="button" onClick={c.use} style={{ height: "38px", padding: "0 16px", borderRadius: "999px", border: "1px solid #DCE0DA", background: "#F7F8F5", color: "#1B2A4A", font: "inherit", fontSize: "14px", cursor: "pointer", display: "flex", alignItems: "center", gap: "6px" }}>
                   <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: c.dot }} />
-                  {c.label}
+                  {tr(c.label)}
                 </button>
               ))}
             </div>
             <div style={{ width: "100%", border: "1px solid #DCE0DA", borderRadius: "22px", background: "#FFFFFF", boxShadow: "0 8px 28px rgba(27,42,74,0.08)", padding: "18px 18px 12px", boxSizing: "border-box", display: "flex", flexDirection: "column", gap: "10px" }}>
-              <label htmlFor="ask" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>输入你的需求</label>
-              <textarea id="ask" rows={3} placeholder={v.placeholder} value={v.draft} onChange={v.onDraft} style={{ border: "none", outline: "none", resize: "none", font: "inherit", fontSize: "16px", lineHeight: "1.7", color: "#1B2A4A", background: "transparent" }}></textarea>
+              <label htmlFor="ask" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>{trBadge("输入你的需求")}</label>
+              <textarea id="ask" rows={3} placeholder={tr(v.placeholder)} value={tr(v.draft)} onChange={v.onDraft} style={{ border: "none", outline: "none", resize: "none", font: "inherit", fontSize: "16px", lineHeight: "1.7", color: "#1B2A4A", background: "transparent" }}></textarea>
               <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
-                <button type="button" aria-label="添加文件或资料" style={{ width: "40px", height: "40px", borderRadius: "50%", border: "none", background: "transparent", color: "#1B2A4A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <button type="button" aria-label={tr("添加文件或资料")} style={{ width: "40px", height: "40px", borderRadius: "50%", border: "none", background: "transparent", color: "#1B2A4A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
                 </button>
-                <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: "999px", background: "#EEF1F6" }}>@ 今日任务</span>
-                <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: "999px", background: "#E6F2EC", color: "#1F5E43" }}>{"/ "}{v.slashLabel}</span>
+                <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: "999px", background: "#EEF1F6" }}>{tr("@ 今日任务")}</span>
+                <span style={{ fontSize: "13px", padding: "5px 12px", borderRadius: "999px", background: "#E6F2EC", color: "#1F5E43" }}>{"/ "}{tr(v.slashLabel)}</span>
                 <span style={{ flex: "1" }} />
-                <label htmlFor="dur" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>时长</label>
-                <select defaultValue="15 分钟" id="dur" style={{ height: "36px", border: "none", background: "#F4F5F2", borderRadius: "10px", padding: "0 10px", font: "inherit", fontSize: "13px", color: "#1B2A4A" }}>
-                  <option>5 分钟</option>
-                  <option>15 分钟</option>
-                  <option>30 分钟</option>
-                  <option>不限</option>
+                <label htmlFor="dur" style={{ position: "absolute", width: "1px", height: "1px", overflow: "hidden", clip: "rect(0 0 0 0)" }}>{trBadge("时长")}</label>
+                <select defaultValue={tr("15 分钟")} id="dur" style={{ height: "36px", border: "none", background: "#F4F5F2", borderRadius: "10px", padding: "0 10px", font: "inherit", fontSize: "13px", color: "#1B2A4A" }}>
+                  <option>{tr("5 分钟")}</option>
+                  <option>{tr("15 分钟")}</option>
+                  <option>{tr("30 分钟")}</option>
+                  <option>{tr("不限")}</option>
                 </select>
-                <button type="button" aria-label="语音输入" style={{ width: "40px", height: "40px", borderRadius: "50%", border: "none", background: "transparent", color: "#1B2A4A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <button type="button" aria-label={tr("语音输入")} style={{ width: "40px", height: "40px", borderRadius: "50%", border: "none", background: "transparent", color: "#1B2A4A", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <rect x="9" y="3" width="6" height="11" rx="3" />
                     <path d="M5 11a7 7 0 0 0 14 0M12 18v3" />
                   </svg>
                 </button>
-                <Link href={v.sendHref} aria-label="发送" style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#1B2A4A", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Link href={v.sendHref} aria-label={tr("发送")} style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#1B2A4A", color: "#FFFFFF", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M12 19V5M5 12l7-7 7 7" />
                   </svg>
@@ -103,30 +104,30 @@ export default class Home2Screen extends DCLogic {
               </div>
             </div>
             <div style={{ width: "100%", display: "flex", gap: "18px", flexWrap: "wrap", fontSize: "13px", color: "#5B6577", padding: "0 8px" }}>
-              <span>学习路径：企业培训解决方案顾问</span>
-              <span>形式：按场景自动推荐</span>
-              <span>权限：只读授权数据</span>
+              <span>{tr("学习路径：企业培训解决方案顾问")}</span>
+              <span>{tr("形式：按场景自动推荐")}</span>
+              <span>{tr("权限：只读授权数据")}</span>
             </div>
             <section aria-labelledby="reco-h" style={{ width: "100%", display: "flex", flexDirection: "column", gap: "12px", marginTop: "18px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                <h2 id="reco-h" style={{ margin: "0", fontSize: "16px", fontWeight: "700" }}>从今天的工作中，为你准备了这些</h2>
-                <Link href="/modes" style={{ fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>全部学习模式</Link>
+                <h2 id="reco-h" style={{ margin: "0", fontSize: "16px", fontWeight: "700" }}>{tr("从今天的工作中，为你准备了这些")}</h2>
+                <Link href="/modes" style={{ fontSize: "13px", fontWeight: "600", textDecoration: "none" }}>{tr("全部学习模式")}</Link>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "12px" }}>
                 {v.recos.map((r: any, i0: number) => (
                   <Link key={i0} href="/session" style={{ display: "flex", alignItems: "center", gap: "14px", padding: "14px 16px", border: "1px solid #E6E8E3", borderRadius: "16px", color: "#1B2A4A", textDecoration: "none", background: "#FFFFFF" }}>
                     <span style={{ width: "44px", height: "44px", borderRadius: "12px", background: r.bg, color: r.fg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", fontWeight: "700", flexShrink: "0" }}>
-                      {r.k}
+                      {trBadge(r.k)}
                     </span>
                     <span style={{ display: "flex", flexDirection: "column", gap: "3px", minWidth: "0" }}>
-                      <span style={{ fontSize: "15px", fontWeight: "600", lineHeight: "1.5" }}>{r.title}</span>
-                      <span style={{ fontSize: "12px", color: "#5B6577" }}>{r.meta}</span>
+                      <span style={{ fontSize: "15px", fontWeight: "600", lineHeight: "1.5" }}>{tr(r.title)}</span>
+                      <span style={{ fontSize: "12px", color: "#5B6577" }}>{tr(r.meta)}</span>
                     </span>
                   </Link>
                 ))}
               </div>
             </section>
-            <p style={{ margin: "24px 0 0", fontSize: "12px", color: "#7A8496" }}>内容由 AI 生成，请核实重要信息</p>
+            <p style={{ margin: "24px 0 0", fontSize: "12px", color: "#7A8496" }}>{tr("内容由 AI 生成，请核实重要信息")}</p>
           </div>
         </main>
       </div>
