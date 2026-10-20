@@ -1,0 +1,7 @@
+/* The screens carry their own inline styles from the design canvas; this only sets page basics. */
+*{box-sizing:border-box}
+html,body{margin:0;background:#FFFFFF;color:#1B2A4A}
+body{font-family:'Noto Sans SC','Microsoft YaHei',sans-serif}
+a{color:#2E7D5B}
+a:hover{color:#1F5E43}
+:focus-visible{outline:2px solid #E8A33D;outline-offset:2px}
