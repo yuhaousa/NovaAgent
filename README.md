@@ -21,6 +21,8 @@ npx wrangler login
 npm run deploy     # next build → ./out，wrangler deploy 发布为 novaagent.<你的子域>.workers.dev
 ```
 
+或交给 GitHub Actions（`.github/workflows/deploy.yml`）：在仓库 Settings → Secrets and variables → Actions 添加机密 `CLOUDFLARE_API_TOKEN`（模板 “Edit Cloudflare Workers”），之后每次推送到 `main` 自动构建并部署；也可在 Actions 页手动运行 “Deploy”。账号 ID 默认沿用 deepread 的账号，需要换账号时添加变量 `CLOUDFLARE_ACCOUNT_ID`。
+
 ## 页面
 
 | 路径 | 页面 |
